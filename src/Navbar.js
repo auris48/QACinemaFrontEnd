@@ -1,0 +1,24 @@
+import { Link } from 'react-router-dom'
+
+export function Navbar(){
+    return <nav>
+        <div className='leftdiv'>
+        <img src="/logo.jpg" alt="qalogo" />
+        </div>
+
+        <div className='centerdiv'>
+        <Link className = 'link' to = "/">Home</Link>
+        <Link className = 'link' to = "/directions">Directions</Link>
+        <Link className = 'link' to = "/example">Example</Link>
+        </div>
+
+        <div className='rightdiv'>
+        <Link className = 'link' to = "/">Log in</Link>
+        <Link className = 'link' to = "/">Sign up</Link>
+        </div>
+
+
+
+
+    </nav>
+}
