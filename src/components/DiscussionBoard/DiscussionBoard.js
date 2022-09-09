@@ -36,7 +36,6 @@ export default function DiscussionBoard() {
   };
 
   const handleSubmit = (e, post) => {
-    console.log(JSON.stringify({ title: post.title, content: post.content }));
     e.preventDefault();
     fetch("http://localhost:3000/Posts", {
       method: "POST",
@@ -71,7 +70,7 @@ export default function DiscussionBoard() {
       ) : (
         <div ref={listRef} className="dboard-post-list">
           {posts.map((data) => (
-            <Post key={data.id} {...data} onDelete={handleDeletePost} />
+            <Post key={data._id} {...data} onDelete={handleDeletePost} />
           ))}{" "}
         </div>
       )}

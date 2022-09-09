@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function AddPostForm(props) {
-  const [rating, setRating] = useState(0);
   const [post, setPost] = useState({
     title: "",
     content: "",
