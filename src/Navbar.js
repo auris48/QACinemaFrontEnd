@@ -13,8 +13,8 @@ export function Navbar(){
         </div>
 
         <div className='rightdiv'>
-        <Link className = 'link' to = "/">Log in</Link>
-        <Link className = 'link' to = "/">Sign up</Link>
+        <Link className = 'link' to = "/login">Log in</Link>
+        <Link className = 'link' to = "/signup">Sign up</Link>
         </div>
 
 
