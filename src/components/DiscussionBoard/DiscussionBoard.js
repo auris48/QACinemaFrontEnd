@@ -3,6 +3,7 @@ import Post from "./Post";
 import "./styles/DiscussionBoardStyles.css";
 import AddPostForm from "./AddPostForm";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { Link, Routes, Route } from "react-router-dom";
 
 export default function DiscussionBoard() {
   const [posts, setPosts] = useState([]);
@@ -10,7 +11,10 @@ export default function DiscussionBoard() {
   const [isAdding, setAdding] = useState(false);
   const [listRef] = useAutoAnimate();
 
-  const handleDeletePost = (id) => {
+  const handleDeletePost = (e, id) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     fetch(`http://localhost:3000/Posts/${id}`, {
       method: "DELETE",
     })
@@ -46,7 +50,7 @@ export default function DiscussionBoard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setPosts([...posts, data]);
+        setPosts([data, ...posts]);
         setAdding(false);
       });
   };
@@ -65,15 +69,16 @@ export default function DiscussionBoard() {
       <button
         className="dboard-add-post"
         onClick={() => setAdding(true)}></button>
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <div ref={listRef} className="dboard-post-list">
-          {posts.map((data) => (
+      <div ref={listRef} className="dboard-post-list">
+        {posts.map((data) => (
+          <Link
+            key={data._id}
+            to={`/Post/${data._id}`}
+            style={{ width: "100%", textDecoration: "none", color: "black" }}>
             <Post key={data._id} {...data} onDelete={handleDeletePost} />
-          ))}{" "}
-        </div>
-      )}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

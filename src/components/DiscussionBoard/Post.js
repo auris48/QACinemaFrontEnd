@@ -23,7 +23,10 @@ export default function Post(props) {
             <button className="post-edit">Edit</button>
             <button
               className="post-delete"
-              onClick={() => props.onDelete(props._id)}>
+              onClick={(e) => {
+                e.stopPropagation();
+                props.onDelete(e, props._id);
+              }}>
               Delete
             </button>
           </div>
