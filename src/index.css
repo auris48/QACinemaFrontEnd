@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(66,62,58);
 }
 
 code {
@@ -46,9 +47,114 @@ nav .rightdiv{
 
 }
 
-.link{
+nav .link{
   text-decoration: none;
   color: rgb(220,220,220);
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.signUpDiv{
+  position: relative;
+  top: 10vh;
+  background-color: rgb(200, 200, 200);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  height: 40rem;
+  width: 25%;
+}
+
+.signUpDiv .signUpForm{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  height: 80%;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin:auto;
+}
+
+.signUpDiv .signUpField{
+  width: 100%;
+}
+
+.signUpDiv .signUpField input{
+  width: 100%;
+}
+
+.signPopup{
+  z-index: 1;
+  position: absolute;
+  display: inline;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(220,220,220, 0.3) ;
+}
+
+.signPopup h1{
+  font-size: 3rem;
+  background-color: rgba(220,220,220, 0.8) ;
+  display: inline;
+  position: relative;
+  text-align: center;
+  top: 30vh;
+  border-radius: 5px;
+  padding: 10px;
+  /* z-index: 1; */
+  color: rgba(32, 29, 25, 1);
+}
+
+.signPopup button{
+  border-radius: 50%;
+  display: inline;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border: 1px solid black;
+  height: 2em;
+  width: 2em;
+}
+
+.logInDiv{
+  position: relative;
+  top: 15vh;
+  background-color: rgb(200, 200, 200);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  height: 20rem;
+  width: 25%;
+
+
+}
+
+.logInDiv .logInForm{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  height: 60%;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin:auto;
+}
+
+.logInDiv .logInField{
+  width: 100%;
+}
+
+.logInDiv .logInField input{
+  width: 100%;
 }
