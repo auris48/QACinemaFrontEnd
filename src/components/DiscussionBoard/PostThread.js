@@ -5,6 +5,7 @@ import "./styles/DiscussionBoardStyles.css";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { dateConverter } from "../../utils/dateConverter";
 
 export default function PostThread() {
   const { id } = useParams();
@@ -12,6 +13,7 @@ export default function PostThread() {
   const [loading, setLoading] = useState(true);
   const [listRef] = useAutoAnimate();
 
+  console.log(post);
   useEffect(() => {
     fetch(`http://localhost:3000/Posts/${id}`)
       .then((response) => response.json())
@@ -21,9 +23,33 @@ export default function PostThread() {
       });
   }, []);
 
+  const handleAddReply = (e, commentID) => {
+    e.preventDefault();
+    let isAdded = false; 
+    fetch(`http://localhost:3000/Posts/Add_Comment_Reply/${commentID}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content: e.target.replyMessage.value }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        let newPost = { ...post };
+        newPost.comments = newPost.comments.map((comment) => {
+          if (comment._id === commentID) {
+            return { ...comment, replies: [...comment.replies, data] };
+          } else {
+            return comment;
+          }
+        });
+        setPost(newPost);
+    });
+  };
+
   const submitComment = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/Posts/Add_Reply/${id}`, {
+    fetch(`http://localhost:3000/Posts/Add_Comment/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +58,7 @@ export default function PostThread() {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          setPost({ ...post, replies: [data, ...post.replies] });
+          setPost({ ...post, comments: [data, ...post.comments] });
           e.target.comment.value = "";
         });
       }
@@ -44,13 +70,23 @@ export default function PostThread() {
       <div className="dboard-wrapper">
         <button className="dboard-add-post"></button>
         <div className="post-thread-opening-post-wrapper">
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
+          <img
+            alt="user"
+            src="https://upload.wikimedia.org/wikipedia/en/5/59/The_Gray_Man_poster.png"
+          />
+          <div className="opening-post-content-wrapper">
+            <h3 className="opening-post-title">{post.title}</h3>
+            <p className="opening-post-content">{post.content}</p>
+            <div className="opening-post-footer">
+              <span>User</span>
+              <span>{post.dateCreated && dateConverter(post.dateCreated)}</span>
+            </div>
+          </div>
         </div>
         <CommentForm handleSubmit={submitComment} />
         <div ref={listRef} className="comments-container">
-          {post.replies &&
-            post.replies
+          {post.comments &&
+            post.comments
               .sort((a, b) => {
                 if (a.dateCreated > b.dateCreated) {
                   return -1;
@@ -59,7 +95,13 @@ export default function PostThread() {
                 }
                 return 0;
               })
-              .map((reply) => <Comment key={reply._id} {...reply} />)}
+              .map((comment) => (
+                <Comment
+                  key={comment._id}
+                  handleReplySubmit={handleAddReply}
+                  {...comment}
+                />
+              ))}
         </div>
       </div>
     </>

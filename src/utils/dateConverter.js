@@ -1,5 +1,5 @@
 export const dateConverter = (date) => {
-  const ukDate = date.toLocaleString("en-GB", { timeZone: "UTC" });
+  const ukDate = date.toLocaleString("en-GB", { timeZone: "Europe/London" });
 
   const [pullDate, pullTime] = [
     ukDate.split("T")[0],
