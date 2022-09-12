@@ -18,12 +18,12 @@ export default function Comment(props) {
                 <span>{dateConverter(reply.dateCreated)}</span>
               </div>
               <div className="reply-content">{reply.content}</div>
-           {/*    <div className="reply-footer">
+              {/*    <div className="reply-footer">
                 <button className="comment-button">Edit</button>
                 <button className="comment-button">Delete</button>
                 <button className="comment-button">Reply</button>
               </div> */}
-              <hr/>
+              <hr />
             </div>
           ))}
         </div>
@@ -45,7 +45,10 @@ export default function Comment(props) {
           <button id="comment-edit-button" className="comment-button">
             Edit
           </button>
-          <button id="comment-delete-button" className="comment-button">
+          <button
+            id="comment-delete-button"
+            onClick={props.handleDeleteComment}
+            className="comment-button">
             Delete
           </button>
           <button

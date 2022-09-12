@@ -25,7 +25,7 @@ export default function PostThread() {
 
   const handleAddReply = (e, commentID) => {
     e.preventDefault();
-    let isAdded = false; 
+    let isAdded = false;
     fetch(`http://localhost:3000/Posts/Add_Comment_Reply/${commentID}`, {
       method: "POST",
       headers: {
@@ -44,7 +44,7 @@ export default function PostThread() {
           }
         });
         setPost(newPost);
-    });
+      });
   };
 
   const submitComment = (e) => {
@@ -61,6 +61,20 @@ export default function PostThread() {
           setPost({ ...post, comments: [data, ...post.comments] });
           e.target.comment.value = "";
         });
+      }
+    });
+  };
+
+  const deleteComment = (commentID) => {
+    fetch(`http://localhost:3000/Posts/Delete_Reply/${commentID}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.status === 200) {
+        let newPost = { ...post };
+        newPost.comments = newPost.comments.filter(
+          (comment) => comment._id !== commentID
+        );
+        setPost(newPost);
       }
     });
   };
@@ -85,7 +99,7 @@ export default function PostThread() {
         </div>
         <CommentForm handleSubmit={submitComment} />
         <div ref={listRef} className="comments-container">
-          {post.comments &&
+          {post.comments && post.comments.length > 0 ? (
             post.comments
               .sort((a, b) => {
                 if (a.dateCreated > b.dateCreated) {
@@ -98,10 +112,14 @@ export default function PostThread() {
               .map((comment) => (
                 <Comment
                   key={comment._id}
-                  handleReplySubmit={handleAddReply}
+                  handleReplySubmit={(e) => handleAddReply(e, comment._id)}
+                  handleDeleteComment={() => deleteComment(comment._id)}
                   {...comment}
                 />
-              ))}
+              ))
+          ) : (
+            <p className="no-posts-message">No comments yet...</p>
+          )}
         </div>
       </div>
     </>

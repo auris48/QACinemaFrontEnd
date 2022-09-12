@@ -1,52 +1,77 @@
 .post-wrapper {
     display: flex;
     flex-direction: column;
-    border-top-right-radius: 10px;
-    background-color: #ffffffc9;
+    background-color: rgba(61, 61, 59, 0.623);
+    gap: 10px;
+    box-shadow: rgba(175, 175, 175, 0.2) 0px 2px 8px 0px;
+}
+
+.post-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.post-container {
+    width: 98%;
+    margin: 0 auto;
+
+}
+
+.post-container * {
+    margin: 0;
+}
+
+/* .post-container {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    box-shadow: rgba(127, 127, 143, 0.2) 0px 7px 29px 0px;
-    border-top: 1px solid rgb(230, 215, 215);
-    border-right: 1px solid rgb(230, 215, 215);
-    border-bottom: 1px solid rgb(230, 215, 215);
+}
+
+.post-container img {
+    border-top-left-radius: 10px;
 }
 
 .post-container:hover {
     cursor: pointer;
-    background-color: #ffffffea;
     transform: scale(1.001);
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    background-color: rgba(61, 61, 59, 0.623);
+} */
 
+.no-posts-message {
+    width: 100;
+    color: rgba(255, 255, 255, 0.404);
+    text-align: center;
 }
 
 .post-header {
-    text-align: center;
+    height: 100%;
     color: white;
     text-transform: capitalize;
     margin-top: 0;
+    padding-top: 20px;
+    padding-left: 20px;
     border-bottom: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #dfc4c4;
-    border-top-right-radius: 10px;
-    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(90, 92, 106, 1) 0%, rgba(32, 45, 58, 1) 81.3%);
 }
 
-
-
 .post-content {
+    font-size: small;
+    color: white;
     display: flex;
     align-items: center;
     gap: 20px;
     margin-top: 0;
-    margin-bottom: 0;
-    padding: 10px;
+    margin-bottom: 1px;
+    padding-left: 20px;
     overflow: auto;
     height: 100%;
-    background-color: rgba(241, 240, 223, 0.452);
-}
-
-.post-content p {
-    align-self: flex-start;
-    font-size: larger;
 }
 
 .post-content img {
@@ -54,6 +79,17 @@
     box-shadow: 3px 3px 1px #ccc;
     -webkit-box-shadow: 3px 3px 1px #ccc;
     -moz-box-shadow: 3px 3px 1px #ccc;
+}
+
+
+.post-footer {
+    display: flex;
+    color: rgba(255, 255, 255, 0.404);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    background-color: rgba(61, 61, 59, 0.623);
 }
 
 .img-shadow {}
@@ -88,6 +124,18 @@
     color: white;
 
 }
+
+.post-content p {
+    align-self: flex-start;
+    font-size: larger;
+}
+
+
+.post-content p {
+    align-self: flex-start;
+    font-size: larger;
+}
+
 
 .comment-expand-replies {
     justify-self: flex-end;
@@ -245,6 +293,11 @@
 
 }
 
+.post-container:hover {
+    background-color: #eeedcd15;
+}
+
+
 .post-thread-submit-comment-button {
     cursor: pointer;
     color: #fffffefd;
@@ -289,8 +342,8 @@
     border: none;
     height: 15px;
     background: no-repeat;
-    color:rgba(255, 255, 255, 0.404);
-    width:100px;
+    color: rgba(255, 255, 255, 0.404);
+    width: 100px;
     background-position-x: right;
     background-color: transparent;
 }
@@ -305,7 +358,7 @@
 }
 
 .reply-container hr {
-    width:100%;
+    width: 100%;
     border: 1px solid #eeedcd15;
 }
 
@@ -366,40 +419,8 @@
     border-radius: 10px;
 }
 
-.post-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
 
-.post-container img {
-    border-top-left-radius: 10px;
-}
-
-
-
-.post-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    background-color: #bfdad649;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.post-actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 10px;
-    border-radius: 10px;
-}
-
+/* 
 .post-actions button {
     color: white;
     border: none;
@@ -409,9 +430,13 @@
     cursor: pointer;
 }
 
+
 .post-actions button:hover {
     background-color: rgba(250, 94, 94, 0.63);
 }
+
+*/
+
 
 .dboard-add-post:hover {
     cursor: pointer;
