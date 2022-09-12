@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, LoadScript, MarkerF, InfoWindowF} from '@react-google-maps/api';
+import { GoogleMap, LoadScript, MarkerF} from '@react-google-maps/api';
 
 export const MapContainer = () => {
   
@@ -19,7 +19,7 @@ export const MapContainer = () => {
           zoom={17}
           center={defaultCenter}>
             <MarkerF icon="/iconclipped.png" title = "QACinema is located here" position={{lat:  51.507514,lng: -0.073505}}></MarkerF>
-            <InfoWindowF position={{lat:  51.507514,lng: -0.073505}}><h1>Test</h1></InfoWindowF>
+            {/* <InfoWindowF position={{lat:  51.507514,lng: -0.073505}}><h1>Test</h1></InfoWindowF> */}
             </GoogleMap>
      </LoadScript>
      </div>
