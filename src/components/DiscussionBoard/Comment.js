@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { dateConverter } from "../../utils/dateConverter";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ReplyForm from "./ReplyForm";
@@ -6,6 +6,35 @@ export default function Comment(props) {
   const [isShowReplies, setIsShowReplies] = useState(false);
   const [isReplying, setIsReplying] = useState(false);
   const [commentRef] = useAutoAnimate();
+  const [isEditing, setIsEditing] = useState(false);
+  const [commentText, setCommentText] = useState(props.comment);
+  const inputRef = useRef(null);
+  useEffect(() => {
+    setIsReplying(false);
+  }, [props.replies]);
+
+  useEffect(() => {
+    inputRef.current.focus();
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsEditing(false);
+      }
+      if (e.key === "Enter") {
+        console.log(inputRef.current.innerText);
+        props.handleEditComment({
+          content: inputRef.current.innerText,
+        });
+
+        setIsEditing(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isEditing]);
 
   const renderChildren = () => {
     if (props.replies.length > 0) {
@@ -40,9 +69,19 @@ export default function Comment(props) {
             {dateConverter(props.dateCreated)}
           </span>
         </div>
-        <p className="comment-content">{props.content}</p>
+        <p
+          suppressContentEditableWarning={true}
+          contentEditable={isEditing}
+          ref={inputRef}
+          className="comment-content"
+          value>
+          {props.content}
+        </p>
         <div className="comment-footer">
-          <button id="comment-edit-button" className="comment-button">
+          <button
+            onClick={() => setIsEditing((prev) => !prev)}
+            id="comment-edit-button"
+            className="comment-button">
             Edit
           </button>
           <button
@@ -53,7 +92,7 @@ export default function Comment(props) {
           </button>
           <button
             id="comment-add-reply-button"
-            onClick={() => setIsReplying(true)}
+            onClick={() => setIsReplying((prev) => !prev)}
             className="comment-button">
             Reply
           </button>
@@ -71,6 +110,7 @@ export default function Comment(props) {
         </div>
         {isReplying && (
           <ReplyForm
+            key={props._id}
             handleSubmit={(e) => {
               props.handleReplySubmit(e, props._id);
             }}

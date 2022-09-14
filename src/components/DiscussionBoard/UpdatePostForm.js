@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DiscussionBoardStyles.css";
 import StarRating from "./StarRating";
-export default function AddPostForm(props) {
+import Select from "react-select";
+
+export default function UpdatePostForm(props) {
   const [moviesData, setMoviesData] = useState([]);
-  const [post, setPost] = useState({
-    title: "",
-    content: "",
-    movie: "",
-    rating: 1,
+  const [newPost, setNewPost] = useState({
+    title: props.title,
+    content: props.content,
+    movie: props.movie,
+    rating: props.rating,
   });
-  console.log(post);
+  console.log(props._id);
+  console.log(newPost);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPost({ ...post, [name]: value });
+    setNewPost({ ...newPost, [name]: value });
   };
 
   useEffect(() => {
@@ -29,14 +33,14 @@ export default function AddPostForm(props) {
         onClick={() => props.bgOnClickHandler(false)}
         className="dboard-pagemask"></div>
       <div className="add-post-wrapper">
-        <form onSubmit={(e) => props.handleSubmit(e, post)}>
+        <form onSubmit={(e) => props.handleSubmit(e, props._id, newPost)}>
           <input
             type="text"
             id="title"
             placeholder="Name"
             name="title"
             onChange={handleChange}
-            value={post.title}
+            value={newPost.title}
           />
 
           <textarea
@@ -44,22 +48,27 @@ export default function AddPostForm(props) {
             name="content"
             id="content"
             onChange={handleChange}
-            value={post.content}
+            value={newPost.content}
           />
 
           <select onChange={handleChange} name="movie" id="movie">
-            <option selected disabled hidden>
-              ---Select Movie---{" "}
-            </option>
             {moviesData.map((movie) => (
-              <option value={movie._id}>{movie.title}</option>
+              <option selected={newPost.movie === movie._id} value={movie._id}>
+                {movie.title}
+              </option>
             ))}
           </select>
-          {post.movie && (
-            <StarRating rating={post.rating} handleChange={handleChange} />
+
+          {newPost.movie && (
+            <StarRating
+              defaultValue={newPost.rating}
+              handleChange={handleChange}
+            />
           )}
           <div className="add-post-actions">
-            <button className="post-thread-submit-comment-button">Add</button>
+            <button className="post-thread-submit-comment-button">
+              Update
+            </button>
             <button
               type="button"
               className="post-thread-submit-comment-button"

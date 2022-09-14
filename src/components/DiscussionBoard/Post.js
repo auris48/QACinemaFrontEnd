@@ -3,6 +3,7 @@ import "./styles/DiscussionBoardStyles.css";
 import { dateConverter } from "../../utils/dateConverter";
 
 export default function Post(props) {
+
   return (
     <div className="post-container">
       <div className="post-wrapper">
@@ -16,7 +17,11 @@ export default function Post(props) {
           <p>By Username....</p>
           <p>{dateConverter(props.dateCreated)}</p>
           <div className="post-actions">
-            <button className="comment-button">Edit</button>
+            <button
+              onClick={props.onUpdate}
+              className="comment-button">
+              Edit
+            </button>
             <button
               className="comment-button"
               onClick={(e) => {

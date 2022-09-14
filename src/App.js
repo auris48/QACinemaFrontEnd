@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<DiscussionBoard />} />
-        <Route path="/Post/:id" element={<PostThread />} />
+        <Route path="/DiscussionBoard" element={<DiscussionBoard />} />
+        <Route path="/DiscussionBoard/Post/:id" element={<PostThread />} />
       </Routes>
     </div>
   );
