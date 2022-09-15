@@ -6,9 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 // issues with git
 export const LogIn = () =>{
-    const navigate = useNavigate();
 
-    const {loggedIn, setLoggedIn} = useContext(loginContext);
     const [isOpen, setIsOpen] = useState(false);
     const [popupcontent, setpopupcontent] = useState("initial");
 
@@ -56,9 +54,7 @@ export const LogIn = () =>{
             setpopupcontent("Login failed");
           }
           else{
-            setLoggedIn(true);
-            navigate("/");
-            // setpopupcontent("Login successful");
+            setpopupcontent("Login successful");
           }
 
           console.log(popupcontent);
