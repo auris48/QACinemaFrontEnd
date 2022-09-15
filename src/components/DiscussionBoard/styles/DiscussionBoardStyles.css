@@ -172,10 +172,6 @@
 }
 
 
-.movies-select {
-    width: 100%;
-    background-color: #000000;
-}
 
 .comment-form textarea::placeholder {
     color: white;
@@ -193,6 +189,48 @@
     font-size: larger;
 }
 
+.paginated-links-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.paginated-links-list-link {
+    color: rgb(243, 232, 232);
+    font-size: 1.5rem;
+}
+
+
+.paginated-links-list-link:hover {
+    color: #d6d33e9a;
+}
+
+.dboard-controls {
+    display: flex;
+    flex-direction: row;
+}
+
+.paginated-links-list-link-active {
+    color: #ffffff;
+    background-color: #d6d33e9a;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 10px;
+    border-radius: 120%;
+}
+
+.paginated-links-list-link {
+    color: white;
+    text-decoration: none;
+}
 
 .comment-expand-replies {
     justify-self: flex-end;
@@ -482,6 +520,7 @@
 }
  */
 .dboard-wrapper {
+    padding-top:50px;
     width: 70vw;
     min-height: 100vh;
     position: absolute;
@@ -489,7 +528,7 @@
     left: 0;
     right: 0;
     display: flex;
-    background-color: #080404;
+    background-color: black;
     flex-direction: column;
     justify-content: start;
     gap: 10px;

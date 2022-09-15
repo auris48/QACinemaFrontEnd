@@ -3,7 +3,8 @@ import Post from "./Post";
 import "./styles/DiscussionBoardStyles.css";
 import AddPostForm from "./AddPostForm";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, useParams } from "react-router-dom";
+import Pages from "./Pages";
 import UpdatePostForm from "./UpdatePostForm";
 
 export default function DiscussionBoard() {
@@ -13,6 +14,7 @@ export default function DiscussionBoard() {
   const [listRef] = useAutoAnimate();
   const [isUpdating, setIsUpdating] = useState(false);
   const [postToUpdate, setPostToUpdate] = useState({});
+  const { page } = useParams();
 
   const handleDeletePost = (e, id) => {
     e.preventDefault();
@@ -29,15 +31,17 @@ export default function DiscussionBoard() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/Posts").then((response) => {
-      if (response.status === 200) {
-        response.json().then((data) => {
-          setPosts(data);
-          setLoading(false);
-        });
+    fetch(`http://localhost:3000/Posts/page/p?page=${page - 1}&limit=10`).then(
+      (response) => {
+        if (response.status === 200) {
+          response.json().then((data) => {
+            setPosts(data);
+            setLoading(false);
+          });
+        }
       }
-    });
-  }, []);
+    );
+  }, [page]);
 
   const handleUpdatePost = (e, id, newPost) => {
     e.preventDefault();
@@ -88,6 +92,15 @@ export default function DiscussionBoard() {
 
   return (
     <div className="dboard-wrapper">
+      <div className="dboard-controls">
+        <Pages currentPage={page} />
+        <button
+          id="add-post-btn"
+          className="post-thread-submit-comment-button"
+          onClick={() => setAdding(true)}>
+          New Post
+        </button>
+      </div>
       {isAdding && (
         <AddPostForm
           bgOnClickHandler={() => {
@@ -108,13 +121,6 @@ export default function DiscussionBoard() {
           {...postToUpdate}
         />
       )}
-
-      <button
-        id="add-post-btn"
-        className="post-thread-submit-comment-button"
-        onClick={() => setAdding(true)}>
-        New Post
-      </button>
       <div ref={listRef} className="dboard-post-list">
         {posts && posts.length > 0 ? (
           posts.map((data) => (
