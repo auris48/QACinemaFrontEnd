@@ -1,14 +1,8 @@
 import {SignPopup} from './signupPopup';
 import React, {useState, useEffect} from 'react';
-import { loginContext } from '../appContext/Context';
-import { useContext } from 'react';
-import { useNavigate } from "react-router-dom";
-
 
 export const LogIn = () =>{
-    const navigate = useNavigate();
 
-    const {loggedIn, setLoggedIn} = useContext(loginContext);
     const [isOpen, setIsOpen] = useState(false);
     const [popupcontent, setpopupcontent] = useState("initial");
 
@@ -56,9 +50,7 @@ export const LogIn = () =>{
             setpopupcontent("Login failed");
           }
           else{
-            setLoggedIn(true);
-            navigate("/");
-            // setpopupcontent("Login successful");
+            setpopupcontent("Login successful");
           }
 
           console.log(popupcontent);
