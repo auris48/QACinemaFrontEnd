@@ -1,6 +1,10 @@
 import {SignPopup} from './signupPopup';
 import React, {useState, useEffect} from 'react';
+import { loginContext } from '../appContext/Context';
+import { useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 
+// issues with git
 export const LogIn = () =>{
 
     const [isOpen, setIsOpen] = useState(false);

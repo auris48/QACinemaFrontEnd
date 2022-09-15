@@ -10,7 +10,7 @@ import { SignUp } from './pages/signup.js';
 import { LogIn }  from './pages/login';
 
 
-
+// issues with git
 function App() {
 
 
