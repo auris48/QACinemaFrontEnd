@@ -4,7 +4,7 @@ import { loginContext } from '../appContext/Context';
 import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 
-
+// issues with git
 export const LogIn = () =>{
     const navigate = useNavigate();
 
