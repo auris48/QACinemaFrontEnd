@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-export default function Pages() {
+export default function Pages(props) {
   const [listRef] = useAutoAnimate();
   const [totalPages, setTotalPages] = useState(0);
 
@@ -17,14 +17,24 @@ export default function Pages() {
   const renderPages = () => {
     let pages = [];
     for (let i = 1; i <= totalPages; i++) {
-      return pages.push(
+      pages.push(
         <li key={i} style={{ color: "white" }}>
-          <Link to={`/page/${i}`}>{i}</Link>
+          <Link
+            enabled={props.currentPage !== i}
+            className={
+              props.currentPage == i
+                ? "paginated-links-list-link-active"
+                : "paginated-links-list-link"
+            }
+            to={`/DiscussionBoard/page/${i}`}>
+            {i}
+          </Link>
         </li>
       );
     }
-    return <ul>{pages}</ul>;
+
+    return <ul className="paginated-links-list">{pages}</ul>;
   };
 
-  return <div>{totalPages > 0 ? renderPages() : <li>Loading...</li>}</div>;
+  return <div>{renderPages()}</div>;
 }

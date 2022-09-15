@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles/DiscussionBoardStyles.css";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -13,6 +13,7 @@ export default function PostThread() {
   const [loading, setLoading] = useState(true);
   const [listRef] = useAutoAnimate();
   const [movie, setMovie] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:3000/Posts/${id}`)
@@ -23,7 +24,6 @@ export default function PostThread() {
   }, []);
 
   const handleEditComment = (id, newComment) => {
-
     fetch(`http://localhost:3000/Posts/Edit_Reply/${id}`, {
       method: "PUT",
       headers: {
@@ -121,13 +121,12 @@ export default function PostThread() {
   return (
     <>
       <div className="dboard-wrapper">
-        <Link style={{ marginLeft: "auto" }} to="/DiscussionBoard">
-          <button
-            id="add-post-btn"
-            className="post-thread-submit-comment-button">
-            Back to forum
-          </button>
-        </Link>
+        <button
+          onClick={() => navigate(-1)}
+          id="add-post-btn"
+          className="post-thread-submit-comment-button">
+          Back to forum
+        </button>
         <div className="post-thread-opening-post-wrapper">
           {movie && (
             <div className="post-movie-poster">
