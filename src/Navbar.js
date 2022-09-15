@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { loginContext } from './appContext/Context'
 import { Logout } from './pages/logout';
 
+// issues with git
+
 export function Navbar() {
     const { loggedIn, setLoggedIn } = useContext(loginContext);
     return <nav>
