@@ -9,7 +9,7 @@ import { Route, Routes } from 'react-router-dom'
 import { loginContext } from './appContext/Context'
 import { useState } from 'react';
 
-
+//issues with git
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
