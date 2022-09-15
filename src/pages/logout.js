@@ -8,7 +8,7 @@ export const Logout = ({loggedIn ,setLoggedIn}) => {
     // const {loggedIn, setLoggedIn} = useContext(loginContext);
     // console.log("LOGGEDIN:" + loggedIn);
     // console.log("CONTEXT:" + JSON.stringify(loginContext, null,  "  "));
-
+    // addedfor git issues
 
     async function handleLogout(){
         try {
