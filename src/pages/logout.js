@@ -9,7 +9,7 @@ export const Logout = ({loggedIn ,setLoggedIn}) => {
     // console.log("LOGGEDIN:" + loggedIn);
     // console.log("CONTEXT:" + JSON.stringify(loginContext, null,  "  "));
 
-
+// issues with git
     async function handleLogout(){
         try {
             const response = await fetch("http://localhost:3000/logout", {
