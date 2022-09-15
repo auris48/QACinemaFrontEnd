@@ -1,4 +1,8 @@
-import './App.css';
+
+import DiscussionBoard from "./components/DiscussionBoard/DiscussionBoard";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
+import PostThread from "./components/DiscussionBoard/PostThread";
 import {Navbar} from './Navbar.js'
 import { Home } from './pages/home.js';
 import { Directions } from './pages/directions.js';
@@ -22,6 +26,8 @@ function App() {
       {/* <h1>you are logged in</h1> */}
 
       <Routes>
+        <Route path="/DiscussionBoard" element={<DiscussionBoard />} />
+        <Route path="/DiscussionBoard/Post/:id" element={<PostThread />} />
         {/* EXAMPLE-- to have multiple components on the page, wrap them in a fragment in the element tag */}
         <Route path = "/example" element = {<><Home /><Directions /></>}></Route>
 
