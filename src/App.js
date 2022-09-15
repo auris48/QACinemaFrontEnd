@@ -8,14 +8,21 @@ import { Home } from './pages/home.js';
 import { Directions } from './pages/directions.js';
 import { SignUp } from './pages/signup.js';
 import { LogIn }  from './pages/login';
+import { Logout } from './pages/logout';
+import { loginContext } from './appContext/Context'
+import { useState } from 'react';
+
 
 
 // issues with git
 function App() {
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
 
   return (
     <div className="App">
+      <loginContext.Provider value = {{loggedIn, setLoggedIn}}>
       <Navbar/>
       <Routes>
         <Route path="/DiscussionBoard" element={<DiscussionBoard />} />
@@ -32,7 +39,10 @@ function App() {
 
         {/* directions page */}
         <Route path = "/directions" element = {<Directions />}></Route>
+
+        <Route path = "/logout" element = {<Logout />}></Route>
       </Routes>
+      </loginContext.Provider>
     </div>
   );
 }
