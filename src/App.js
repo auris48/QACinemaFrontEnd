@@ -14,15 +14,16 @@ import { useState } from "react";
 // issues with git
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
 
   return (
     <div className="App">
-      <loginContext.Provider value={{ loggedIn, setLoggedIn }}>
+      <loginContext.Provider value={{ loggedIn, setLoggedIn, user, setUser }}>
         <Navbar />
         <Routes>
           <Route
             path="/DiscussionBoard/page/:page"
-            element={<DiscussionBoard />}
+            element={<DiscussionBoard user={user} loggedIn={loggedIn} />}
           />
           <Route path="/DiscussionBoard/Post/:id" element={<PostThread />} />
           {/* EXAMPLE-- to have multiple components on the page, wrap them in a fragment in the element tag */}

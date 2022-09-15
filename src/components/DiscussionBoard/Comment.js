@@ -1,14 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { dateConverter } from "../../utils/dateConverter";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ReplyForm from "./ReplyForm";
+import { loginContext } from "../../appContext/Context";
+import Replies from "./Replies";
 export default function Comment(props) {
   const [isShowReplies, setIsShowReplies] = useState(false);
   const [isReplying, setIsReplying] = useState(false);
   const [commentRef] = useAutoAnimate();
   const [isEditing, setIsEditing] = useState(false);
   const [commentText, setCommentText] = useState(props.comment);
+  const { user } = useContext(loginContext);
+  const { loggedIn } = useContext(loginContext);
   const inputRef = useRef(null);
+  const [username, setUsername] = useState();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/User/${props.user}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUsername(data.username);
+      });
+  }, []);
+
   useEffect(() => {
     setIsReplying(false);
   }, [props.replies]);
@@ -36,35 +50,11 @@ export default function Comment(props) {
     };
   }, [isEditing]);
 
-  const renderChildren = () => {
-    if (props.replies.length > 0) {
-      return (
-        <div className="comment-replies-container">
-          {props.replies.map((reply) => (
-            <div className="reply-container">
-              <div className="reply-header">
-                <span>User</span>
-                <span>{dateConverter(reply.dateCreated)}</span>
-              </div>
-              <div className="reply-content">{reply.content}</div>
-              {/*    <div className="reply-footer">
-                <button className="comment-button">Edit</button>
-                <button className="comment-button">Delete</button>
-                <button className="comment-button">Reply</button>
-              </div> */}
-              <hr />
-            </div>
-          ))}
-        </div>
-      );
-    }
-  };
-
   return (
     <>
       <div className="comment-container" ref={commentRef}>
         <div className="comment-header-info">
-          <span className="comment-author">User</span>
+          <span className="comment-author">{username}</span>
           <span className="comment-date">
             {dateConverter(props.dateCreated)}
           </span>
@@ -78,24 +68,32 @@ export default function Comment(props) {
           {props.content}
         </p>
         <div className="comment-footer">
-          <button
-            onClick={() => setIsEditing((prev) => !prev)}
-            id="comment-edit-button"
-            className="comment-button">
-            Edit
-          </button>
-          <button
-            id="comment-delete-button"
-            onClick={props.handleDeleteComment}
-            className="comment-button">
-            Delete
-          </button>
-          <button
-            id="comment-add-reply-button"
-            onClick={() => setIsReplying((prev) => !prev)}
-            className="comment-button">
-            Reply
-          </button>
+          {loggedIn && user._id === props.user && (
+            <>
+              <button
+                onClick={() => setIsEditing((prev) => !prev)}
+                id="comment-edit-button"
+                className="comment-button">
+                Edit
+              </button>
+              <button
+                id="comment-delete-button"
+                onClick={props.handleDeleteComment}
+                className="comment-button">
+                Delete
+              </button>
+            </>
+          )}
+          {loggedIn && (
+            <>
+              <button
+                id="comment-add-reply-button"
+                onClick={() => setIsReplying((prev) => !prev)}
+                className="comment-button">
+                Reply
+              </button>
+            </>
+          )}
           {props.replies.length > 0 && (
             <button
               className={
@@ -118,7 +116,10 @@ export default function Comment(props) {
           />
         )}
       </div>
-      {isShowReplies && renderChildren()}
+
+      {isShowReplies &&
+        props.replies.length > 0 &&
+        props.replies.map((reply) => <Replies key={reply._id} {...reply} />)}
     </>
   );
 }

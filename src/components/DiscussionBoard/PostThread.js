@@ -1,6 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { loginContext } from "../../appContext/Context";
 import "./styles/DiscussionBoardStyles.css";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
@@ -10,11 +11,14 @@ import { Link } from "react-router-dom";
 export default function PostThread() {
   const { id } = useParams();
   const [post, setPost] = useState({});
+  const [username, setUsername] = useState();
   const [loading, setLoading] = useState(true);
   const [listRef] = useAutoAnimate();
   const [movie, setMovie] = useState({});
   const navigate = useNavigate();
-
+  const { user } = useContext(loginContext);
+  const { loggedIn } = useContext(loginContext);
+ console.log(username);
   useEffect(() => {
     fetch(`http://localhost:3000/Posts/${id}`)
       .then((response) => response.json())
@@ -22,6 +26,14 @@ export default function PostThread() {
         setPost(data);
       });
   }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/User/${post.user}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUsername(data.username);
+      });
+  }, [post]);
 
   const handleEditComment = (id, newComment) => {
     fetch(`http://localhost:3000/Posts/Edit_Reply/${id}`, {
@@ -70,7 +82,7 @@ export default function PostThread() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content: e.target.replyMessage.value }),
+      body: JSON.stringify({ content: e.target.replyMessage.value, user: user }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -93,7 +105,7 @@ export default function PostThread() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content: e.target.comment.value }),
+      body: JSON.stringify({ content: e.target.comment.value, user: user }),
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
@@ -138,12 +150,18 @@ export default function PostThread() {
             <h3 className="opening-post-title">{post.title}</h3>
             <p className="opening-post-content">{post.content}</p>
             <div className="opening-post-footer">
-              <span>User</span>
+              <span>{username}</span>
               <span>{post.dateCreated && dateConverter(post.dateCreated)}</span>
             </div>
           </div>
         </div>
-        <CommentForm handleSubmit={submitComment} />
+        {loggedIn ? (
+          <CommentForm handleSubmit={submitComment} />
+        ) : (
+          <p style={{ color: "white", margin: "0 auto", padding: "30px" }}>
+            You must log in to post comments
+          </p>
+        )}
         <div ref={listRef} className="comments-container">
           {post.comments && post.comments.length > 0 ? (
             post.comments

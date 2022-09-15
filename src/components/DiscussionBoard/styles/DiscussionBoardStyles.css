@@ -138,6 +138,7 @@
  */
 .post-footer {
     display: flex;
+    min-height:40px;
     color: rgba(255, 255, 255, 0.404);
     flex-direction: row;
     justify-content: space-between;

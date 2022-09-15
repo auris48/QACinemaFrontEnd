@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import Post from "./Post";
 import "./styles/DiscussionBoardStyles.css";
 import AddPostForm from "./AddPostForm";
@@ -6,6 +6,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Link, Routes, Route, useParams } from "react-router-dom";
 import Pages from "./Pages";
 import UpdatePostForm from "./UpdatePostForm";
+import { loginContext } from "../../appContext/Context";
 
 export default function DiscussionBoard() {
   const [posts, setPosts] = useState([]);
@@ -15,6 +16,8 @@ export default function DiscussionBoard() {
   const [isUpdating, setIsUpdating] = useState(false);
   const [postToUpdate, setPostToUpdate] = useState({});
   const { page } = useParams();
+  const { user, setUser } = useContext(loginContext);
+  const { loggedIn, setLoggedIn } = useContext(loginContext);
 
   const handleDeletePost = (e, id) => {
     e.preventDefault();
@@ -79,7 +82,7 @@ export default function DiscussionBoard() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(post),
+      body: JSON.stringify({ ...post, user: user._id }),
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
@@ -94,12 +97,14 @@ export default function DiscussionBoard() {
     <div className="dboard-wrapper">
       <div className="dboard-controls">
         <Pages currentPage={page} />
-        <button
-          id="add-post-btn"
-          className="post-thread-submit-comment-button"
-          onClick={() => setAdding(true)}>
-          New Post
-        </button>
+        {loggedIn && (
+          <button
+            id="add-post-btn"
+            className="post-thread-submit-comment-button"
+            onClick={() => setAdding(true)}>
+            New Post
+          </button>
+        )}
       </div>
       {isAdding && (
         <AddPostForm
