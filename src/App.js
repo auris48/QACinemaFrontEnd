@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
-import SearchBar from "./Components/SearchBar";
+import SearchBar from "./components/SearchBar";
 import BookData from "./Data.json";
-import Contact from "./Components/Contact";
+import Contact from "./components/Contact";
 
 
 
 //adding search and contact router
-import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
+import DiscussionBoard from "./components/DiscussionBoard/DiscussionBoard";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Link, Routes, Route, useParams } from "react-router-dom";
-import PostThread from "./Components/DiscussionBoard/PostThread";
+import PostThread from "./components/DiscussionBoard/PostThread";
 import { Navbar } from "./Navbar.js";
 import { Home } from "./pages/home.js";
 import { Directions } from "./pages/directions.js";
@@ -22,6 +22,8 @@ import { useState } from "react";
 import { Bookings } from "./pages/bookings";
 import { CreateBooking} from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
+import UnreleasedMovies from "./components/UnreleasedMovies";
+import MovieApp from "./components/MovieApp";
 
 
 // issues with git
@@ -80,7 +82,8 @@ function App() {
           <Route path="/bookings" element={<Bookings />}></Route>
           <Route path="/viewbookings" element={<ViewBookings />}> </Route>
           <Route path="/createbooking" element={<CreateBooking />}> </Route>
-
+          <Route path="/Movies" element = {<MovieApp/>}/>
+            <Route path="/unreleasedMovies" element = {<UnreleasedMovies/>}/>
 
         </Routes>
       </loginContext.Provider>
