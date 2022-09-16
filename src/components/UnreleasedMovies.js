@@ -30,10 +30,12 @@ function UnreleasedMovies() {
        
         <div className="unreleased-movie-details">
         <p>{unreleasedMovies.description}</p>  
+        <h>Release Date:</h>
+        <p>{unreleasedMovies.releaseDate}</p>
         </div>
     
         <div className="unreleased-movie-actions">  
-        <a href={unreleasedMovies.trailerURL}><button>Trailer</button></a>
+        <a href={unreleasedMovies.trailerURL}><button>Watch Trailer Now</button></a>
           </div>
         </div> 
     

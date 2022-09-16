@@ -7,20 +7,28 @@ const FEATURED_API = "http://localhost:3000/Movie"
 function MovieApp() {
   const [movies, setMovies ] = useState([]);
 
-
   useEffect(() => {
             fetch(FEATURED_API).then(response => response.json())
             .then(data => {
               console.log(data)
               setMovies(data);
             });
-
   },[]);
   
+const filterUnreleasedMovies = () => {
+  let releaseMovies = [];
+  let today = new Date().toISOString().slice(0, 10)
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].releaseDate < today) {
+      releaseMovies.push(movies[i])      
+    }
+  }
+  return releaseMovies;
+
+}
+  console.log(movies.filter((movie)=>{return movie.releaseDate < Date.now}));
   return <div className="container"> 
-      {movies.map((movie) => 
-    
-    
+      {filterUnreleasedMovies().map((movie) =>  
 
     <div className="movie-componants">
       <div className="movie-componant-header">
@@ -42,17 +50,12 @@ function MovieApp() {
     <a href={movie.trailerURL}><button>Trailer</button></a>
       </div>
     </div> 
-
     
     )}
     
-    
     </div>
        
-  
-
-}
-
+  }
 export default MovieApp;
 
 
