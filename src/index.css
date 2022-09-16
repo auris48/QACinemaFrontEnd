@@ -1,26 +1,281 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
-
-*{
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #22254b;
-  color: white;
+  background-color: rgba(15, 7, 7, 0.959);
   font-family: "Poppins", sans-serif;
-  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(66,62,58);
 }
 
-.movie-componants {
+
+/* git issues */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+nav {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  height: 4rem;
+  font-size: 1rem;
+  background-color: rgba(32, 29, 25, 1);
+  justify-content: space-around;
 }
 
-.movie-componants {
-  margin: 1rem;
-  width: 300px;
+nav img{
+  height:3.5rem;
 }
 
-.movie-componants img {
-  max-width: 100%;
+nav div{
+  width: 30%;
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+nav .leftdiv{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+nav .rightdiv{
+  justify-content: end;
+  text-align: end;
+
+}
+
+nav .link{
+  text-decoration: none;
+  color: rgb(220,220,220);
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.signUpDiv{
+  position: relative;
+  top: 10vh;
+  background-color: rgb(200, 200, 200);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  height: 40rem;
+  width: 25%;
+}
+
+.signUpDiv .signUpForm{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  height: 80%;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin:auto;
+}
+
+.signUpDiv .signUpField{
+  width: 100%;
+}
+
+.signUpDiv .signUpField input{
+  width: 100%;
+}
+
+.signPopup{
+  z-index: 1;
+  position: absolute;
+  display: inline;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(220,220,220, 0.3) ;
+}
+
+.signPopup h1{
+  font-size: 3rem;
+  background-color: rgba(220,220,220, 0.8) ;
+  display: inline;
+  position: relative;
+  text-align: center;
+  top: 30vh;
+  border-radius: 5px;
+  padding: 10px;
+  /* z-index: 1; */
+  color: rgba(32, 29, 25, 1);
+}
+
+.signPopup button{
+  border-radius: 50%;
+  display: inline;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border: 1px solid black;
+  height: 2em;
+  width: 2em;
+}
+
+.logInDiv{
+  position: relative;
+  top: 15vh;
+  background-color: rgb(200, 200, 200);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  height: 20rem;
+  width: 25%;
+
+
+}
+
+.logInDiv .logInForm{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  height: 60%;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin:auto;
+}
+
+.logInDiv .logInField{
+  width: 100%;
+}
+
+.logInDiv .logInField input{
+  width: 100%;
+}
+
+.directionsPageHeading{
+  color: rgb(230, 230, 230);
+}
+.directionsPage{
+  display: flex;
+  justify-content: center;
+  color: rgb(230, 230, 230);
+}
+
+.directionsPage p{
+  display: inline;
+  
+}
+
+.directionsPage img{
+  margin-top: 50px;
+  height: 21rem;
+}
+
+.directionsPage .directionsParagraph{
+  margin-left: 30px;
+  margin-right: 30px;
+  
+}
+
+.directionsPage .directionsText{
+  /* background-color: grey; */
+  display: flex;
+  height: 20rem;
+  width: 40rem;
+
+  text-align: left;
+  
+}
+
+.directionsPage .textBlock{
+  margin-bottom: 10px;
+}
+
+.directionsPage .directionsLeft{
+  margin-right: 30px;
+}
+
+.directionsPage .directionsRight{
+  margin-left: 30px;
+}
+
+.map{
+  display: inline-block;
+  margin: auto;
+  margin-top:50px;
+
+  width: 83%;
+}
+
+.bookingsHome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  gap: 10rem;
+}
+
+.bookingsHome button{
+  height: 70vh;
+  width: 30vw;
+
+}
+
+.createBookingPage{
+  display: flex;
+  flex-direction: column;
+  height: 50vw;
+  /* justify-content: center; */
+  align-items: center ;
+}
+
+.createBookingPage .moviePanel{
+  display: flex;
+  justify-content: center;
+}
+
+.createBookingPage .movieTitle{
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+}
+
+.createBookingPage .moviePicture{
+  height: 40vh;
+}
+
+.createBookingPage .movieDetails{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  height: 40vh;
+}
+
+.createBookingPage .movieDescription{
+  display: inline-block;
+  width: 80%;
+}
+
+.createBookingPage .selectForm{
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 20px;
+  
+}
+
+.createBookingPage .selectForm select{
+  height: 20px;
+  width: 170px;
+}
+
+.createBookingPage .selectForm .ticketSelects{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
