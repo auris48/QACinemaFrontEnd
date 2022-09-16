@@ -16,6 +16,11 @@ export function Navbar() {
         <Link className = 'link' to = "/">Home</Link>
         <Link className = 'link' to = "/directions">Directions</Link>
         <Link className = 'link' to = "/example">Example</Link>
+
+        {loggedIn ?
+            <Link className = 'link' to = "/Bookings">Bookings</Link>: <span></span>}
+
+
         <Link className = 'link' to = "/DiscussionBoard/page/1">Board</Link>
         </div>
 

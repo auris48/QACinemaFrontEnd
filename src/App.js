@@ -11,6 +11,12 @@ import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
 import { useEffect, useState } from "react";
 import PaymentForm from "./components/PaymentForm/PaymentForm";
+import { useState } from "react";
+import { Bookings } from "./pages/bookings";
+import { CreateBooking} from "./pages/createBooking";
+import { ViewBookings } from "./pages/viewBookings";
+
+
 // issues with git
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -69,6 +75,11 @@ function App() {
 
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/PaymentForm" element={<PaymentForm />} />
+
+
+          <Route path="/bookings" element={<Bookings />}></Route>
+          <Route path="/viewbookings" element={<ViewBookings />}> </Route>
+          <Route path="/createbooking" element={<CreateBooking />}> </Route>
         </Routes>
       </loginContext.Provider>
     </div>
