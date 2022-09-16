@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "./components/CSS/Movies.css";
+import "./CSS/Movies.css";
 import { Button, Container } from "react-bootstrap";
 
 const FEATURED_API = "http://localhost:3000/Movie"
