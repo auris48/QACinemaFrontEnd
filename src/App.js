@@ -1,7 +1,16 @@
-import DiscussionBoard from "./components/DiscussionBoard/DiscussionBoard";
+import React from "react";
+import "./App.css";
+import SearchBar from "./Components/SearchBar";
+import BookData from "./Data.json";
+import Contact from "./Components/Contact";
+
+
+
+//adding search and contact router
+import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Link, Routes, Route, useParams } from "react-router-dom";
-import PostThread from "./components/DiscussionBoard/PostThread";
+import PostThread from "./Components/DiscussionBoard/PostThread";
 import { Navbar } from "./Navbar.js";
 import { Home } from "./pages/home.js";
 import { Directions } from "./pages/directions.js";
@@ -21,9 +30,15 @@ function App() {
 
   return (
     <div className="App">
+
+      
+
+
       <loginContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Navbar />
         <Routes>
+        <Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>
+        <Route path = "/Contact" element = {<><Contact /></>}></Route>
           <Route
             path="/DiscussionBoard/page/:page"
             element={<DiscussionBoard />}
@@ -72,5 +87,10 @@ function App() {
     </div>
   );
 }
+
+//<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router 
+
+//<SearchBar placeholder="Search for a movie..." data={BookData} />    this is the search bar data import
+
 
 export default App;
