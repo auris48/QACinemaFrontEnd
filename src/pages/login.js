@@ -56,9 +56,9 @@ export const LogIn = () => {
       setpopupcontent("Login failed");
     } else {
       setLoggedIn(true);
-
       const data = await response.json();
       setUser(data);
+      sessionStorage.setItem("user", JSON.stringify(data));
       navigate("/");
       // setpopupcontent("Login successful");
     }

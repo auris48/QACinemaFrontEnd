@@ -9,12 +9,22 @@ import { SignUp } from "./pages/signup.js";
 import { LogIn } from "./pages/login";
 import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import PaymentForm from "./components/PaymentForm/PaymentForm";
 // issues with git
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user) {
+      setLoggedIn(true);
+      setUser(user);
+    }
+  }, []);
+
+  console.log(loggedIn);
 
   return (
     <div className="App">
@@ -58,6 +68,7 @@ function App() {
           <Route path="/directions" element={<Directions />}></Route>
 
           <Route path="/logout" element={<Logout />}></Route>
+          <Route path="/PaymentForm" element={<PaymentForm />} />
         </Routes>
       </loginContext.Provider>
     </div>

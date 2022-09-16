@@ -136,6 +136,11 @@
 }
 
  */
+
+.post-date {
+    padding-right: 20px;
+}
+
 .post-footer {
     display: flex;
     min-height:40px;

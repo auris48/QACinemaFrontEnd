@@ -54,7 +54,7 @@ export default function Comment(props) {
     <>
       <div className="comment-container" ref={commentRef}>
         <div className="comment-header-info">
-          <span className="comment-author">{username}</span>
+          <strong className="comment-author">{username}</strong>
           <span className="comment-date">
             {dateConverter(props.dateCreated)}
           </span>

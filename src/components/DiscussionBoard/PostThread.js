@@ -18,7 +18,8 @@ export default function PostThread() {
   const navigate = useNavigate();
   const { user } = useContext(loginContext);
   const { loggedIn } = useContext(loginContext);
- console.log(username);
+  
+  
   useEffect(() => {
     fetch(`http://localhost:3000/Posts/${id}`)
       .then((response) => response.json())

@@ -5,7 +5,10 @@
 /.pnp
 .pnp.js
 
+
+/src/components/PaymentForm.css
 # testing
+
 /coverage
 
 # production

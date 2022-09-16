@@ -27,8 +27,11 @@ export default function Post(props) {
           <p>{props.content}</p>
         </div>
         <div className="post-footer">
-          <p>{username}</p>
-          <p>{dateConverter(props.dateCreated)}</p>
+          <strong>{username}</strong>
+          <p
+            className={!loggedIn || user._id !== props.user ? "post-date" : ""}>
+            {dateConverter(props.dateCreated)}
+          </p>
           {loggedIn && user._id === props.user && (
             <div className="post-actions">
               <button onClick={props.onUpdate} className="comment-button">
