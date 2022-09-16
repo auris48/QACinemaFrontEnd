@@ -10,6 +10,10 @@ import { LogIn } from "./pages/login";
 import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
 import { useState } from "react";
+import { Bookings } from "./pages/bookings";
+import { CreateBooking} from "./pages/createBooking";
+import { ViewBookings } from "./pages/viewBookings";
+
 
 // issues with git
 function App() {
@@ -57,6 +61,12 @@ function App() {
           <Route path="/directions" element={<Directions />}></Route>
 
           <Route path="/logout" element={<Logout />}></Route>
+
+          <Route path="/bookings" element={<Bookings />}></Route>
+          <Route path="/viewbookings" element={<ViewBookings />}> </Route>
+          <Route path="/createbooking" element={<CreateBooking />}> </Route>
+
+
         </Routes>
       </loginContext.Provider>
     </div>
