@@ -19,7 +19,6 @@
 }
 
 .col-25 {
-   
     flex: 25%;
     grid-column: 1;
 }
