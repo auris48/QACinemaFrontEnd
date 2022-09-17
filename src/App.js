@@ -11,8 +11,12 @@ import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
 import { useEffect, useState } from "react";
 import PaymentForm from "./components/PaymentForm/PaymentForm";
+import { Elements } from "@stripe/react-stripe-js";
+
 // issues with git
 function App() {
+/*   const { publishableKey } = require("./config.json");
+  const stripePromise = loadStripe(publishableKey); */
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
 
