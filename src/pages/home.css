@@ -1,0 +1,32 @@
+.slider-container {
+    max-height: 300px;
+    background-color: black;
+}
+
+.slick-slider {
+    max-height: 300px;
+    width:95%;
+    margin:0 auto;
+}
+
+.slick-slider img {
+    max-height:300px;
+    width:100%;
+}
+
+.slider-movie-container {
+    position:relative;
+}
+
+.slider-movie-info {
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap:50px;
+}
