@@ -211,3 +211,92 @@ nav .link{
 
   width: 83%;
 }
+
+.contactPageHeading{
+  color: rgb(230, 230, 230);
+}
+
+.contactPage{
+  display: flex;
+  justify-content: center;
+  color: rgb(230, 230, 230);
+}
+
+.contactPage p{
+  display: inline;
+  
+}
+
+.contactPage img{
+  margin-top: 50px;
+  height: 21rem;
+}
+
+.contactPage .contactParagraph{
+  margin-left: 30px;
+  margin-right: 30px;
+  
+}
+
+.contactPage .contactText{
+  /* background-color: grey; */
+  display: flex;
+  height: 20rem;
+  width: 40rem;
+
+  text-align: left;
+  
+}
+
+.contactPage .textBlock{
+  margin-bottom: 10px;
+}
+
+.contactPage .contactLeft{
+  margin-right: 30px;
+}
+
+.contactPage .contactRight{
+  margin-left: 30px;
+}
+
+.aboutPageHeading{
+  color: rgb(230, 230, 230);
+}
+
+.aboutPage{
+  display: flex;
+  justify-content: center;
+  color: rgb(230, 230, 230);
+}
+
+.aboutPage p{
+  display: inline;
+  
+}
+
+.aboutPage img{
+  margin-top: 50px;
+  height: 21rem;
+}
+
+.aboutPage .aboutParagraph{
+  margin-left: 30px;
+  margin-right: 30px;
+  
+}
+
+.aboutPage .aboutText{
+  /* background-color: grey; */
+  display: flex;
+  height: 20rem;
+  width: 40rem;
+
+  text-align: left;
+  
+}
+
+.aboutPage .textBlock{
+  margin-bottom: 10px;
+}
+
