@@ -35,6 +35,21 @@ export function contact(){
         <br />
         <p>If you want to get in touch via Email, feel free to send us a message via this form below and we'll get back to you as soon as possible</p> <br />
         </div>
+        <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+            <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input type="text" className="form-control" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Email address</label>
+                <input type="email" className="form-control" aria-describedby="emailHelp" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea className="form-control" rows="5"></textarea>
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
         </div>
         </div>
 
