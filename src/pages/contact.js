@@ -2,11 +2,11 @@ export function contact(){
     return <div>
     
     <h1 className="contactPageHeading">Contact Us!</h1>
-    <div className="aboutPage">
-        <div className="aboutUsParagraph">
+    <div className="contactPage">
+        <div className="contactUsParagraph">
             <h1>Contact Us</h1>
-        <div className="aboutText">
-        <div className="aboutLeft">
+        <div className="contactText">
+        <div className="contactLeft">
         <div className="textBlock">
         <br />
         <p><strong>Contact Information</strong></p>
