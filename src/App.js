@@ -37,7 +37,8 @@ function App() {
       <loginContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Navbar />
         <Routes>
-        <Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>
+        <Route path = "/SearchBar" element = {<><SearchBar placeholder="Search for a movie..." data={BookData} /></>}></Route>
+        
         <Route path = "/Contact" element = {<><Contact /></>}></Route>
           <Route
             path="/DiscussionBoard/page/:page"
