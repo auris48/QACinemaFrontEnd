@@ -11,6 +11,8 @@ export function Screens(){
         <div className="textBlock">
             <img alt = "Standard Screen" src = "/standardscreen.png"></img>
         </div>
+        <div className="textBlock">
+            <img alt = "Standard Seat" src = "/standardseat.png"></img>
         </div>
         </div>
         </div>
@@ -23,8 +25,12 @@ export function Screens(){
         <div className="textBlock">
             <img alt = "Deluxe Screen" src = "/deluxescreen.png"></img>
         </div>
+        <div className="textBlock">
+            <img alt = "Deluxe Seat" src = "/deluxeseat.png"></img>
+        </div>    
 
 
+    </div>
     </div>
     </div>
     </div>
