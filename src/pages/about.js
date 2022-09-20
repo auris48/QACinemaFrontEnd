@@ -9,7 +9,7 @@ export function about(){
         <div className="aboutUsParagraph">
             <h1>About Us</h1>
         <div className="aboutText">
-        <div className="aboutLeft">
+        <div className="aboutCentre">
         <div className="textBlock">
         <br />
         <p>This site was created by Team Bravo for the Final Project of the 22JuneEnable4 QA Tech Specialist Training Cohort</p> <br />
