@@ -3,9 +3,13 @@ import "./App.css";
 import  { useState, useEffect } from 'react';
 import SearchBar from "./Components/SearchBar";
 import BookData from "./Data.json";
+
 import Contact from "./Components/Contact";
 import AboutUs from "./Components/AboutPage/AboutUs";
 import Moviev2app from "./Components/Movies/Moviev2app"
+
+
+
 
 //adding search and contact router
 import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
@@ -21,10 +25,15 @@ import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
 
 import { Bookings } from "./pages/bookings";
-import { CreateBooking} from "./pages/createBooking";
+import { CreateBooking } from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
+
 import UnreleasedMovies from "./Components/UnreleasedMovies";
 import MovieApp from "./Components/MovieApp";
+
+
+
+import Classifications from "./pages/Classifications";
 
 
 // issues with git
@@ -34,18 +43,25 @@ function App() {
   
   return (
     <div className="App">
-
-      
-
-
       <loginContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Navbar />
         <Routes>
+
         <Route path = "/SearchBar" element = {<><SearchBar placeholder="Search for a movie..." data={BookData} /></>}></Route>
         
         <Route path = "/Contact" element = {<><Contact /></>}></Route>
         <Route path = "/AboutUs" element = {<><AboutUs /></>}></Route>
         <Route path = "/Moviev2app" element = {<><Moviev2app /></>}></Route>
+
+
+          <Route
+            path="/Contact"
+            element={
+              <>
+                <Contact />
+              </>
+            }
+          ></Route>
 
           <Route
             path="/DiscussionBoard/page/:page"
@@ -60,7 +76,8 @@ function App() {
                 <Home />
                 <Directions />
               </>
-            }></Route>
+            }
+          ></Route>
 
           <Route
             path="/signup"
@@ -68,14 +85,16 @@ function App() {
               <>
                 <SignUp />
               </>
-            }></Route>
+            }
+          ></Route>
           <Route
             path="/login"
             element={
               <>
                 <LogIn />
               </>
-            }></Route>
+            }
+          ></Route>
 
           {/* home page */}
           <Route path="/" element={<Home />}></Route>
@@ -86,11 +105,15 @@ function App() {
           <Route path="/logout" element={<Logout />}></Route>
 
           <Route path="/bookings" element={<Bookings />}></Route>
-          <Route path="/viewbookings" element={<ViewBookings />}> </Route>
-          <Route path="/createbooking" element={<CreateBooking />}> </Route>
-          <Route path="/Movies" element = {<MovieApp/>}/>
-            <Route path="/unreleasedMovies" element = {<UnreleasedMovies/>}/>
-
+          <Route path="/viewbookings" element={<ViewBookings />}>
+            {" "}
+          </Route>
+          <Route path="/createbooking" element={<CreateBooking />}>
+            {" "}
+          </Route>
+          <Route path="/Movies" element={<MovieApp />} />
+          <Route path="/unreleasedMovies" element={<UnreleasedMovies />} />
+          <Route path="/Classifications" element={<Classifications />} />
         </Routes>
       </loginContext.Provider>
       
@@ -100,6 +123,7 @@ function App() {
 }
 
 
+export default App;
 
 //<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router 
 
@@ -112,4 +136,11 @@ function App() {
 //<Route path = "/SearchBox" element = {<><SearchBox /></>}></Route>
 //<Route path = "/RemoveFavourites" element = {<><RemoveFavourites /></>}></Route>
 
-export default App;
+
+
+//<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router
+
+//<SearchBar placeholder="Search for a movie..." data={BookData} />    this is the search bar data import
+
+
+
