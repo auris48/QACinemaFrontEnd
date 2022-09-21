@@ -3,7 +3,7 @@ import "./App.css";
 import SearchBar from "./Components/SearchBar";
 import BookData from "./Data.json";
 import Contact from "./Components/Contact";
-
+import AboutUs from "./Components/AboutPage/AboutUs";
 
 
 //adding search and contact router
@@ -42,6 +42,7 @@ function App() {
         <Route path = "/SearchBar" element = {<><SearchBar placeholder="Search for a movie..." data={BookData} /></>}></Route>
         
         <Route path = "/Contact" element = {<><Contact /></>}></Route>
+        <Route path = "/AboutUs" element = {<><AboutUs /></>}></Route>
           <Route
             path="/DiscussionBoard/page/:page"
             element={<DiscussionBoard />}
