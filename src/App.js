@@ -1,21 +1,18 @@
 import React from "react";
 import "./App.css";
-import  { useState, useEffect } from 'react';
-import SearchBar from "./Components/SearchBar";
+import { useState, useEffect } from "react";
+import SearchBar from "./components/SearchBar";
 import BookData from "./Data.json";
 
-import Contact from "./Components/Contact";
-import AboutUs from "./Components/AboutPage/AboutUs";
-import Moviev2app from "./Components/Movies/Moviev2app"
-
-
-
+import Contact from "./components/Contact";
+import AboutUs from "./components/AboutPage/AboutUs";
+import Moviev2app from "./components/Movies/Moviev2app";
 
 //adding search and contact router
-import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
+import DiscussionBoard from "./components/DiscussionBoard/DiscussionBoard";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Link, Routes, Route, useParams } from "react-router-dom";
-import PostThread from "./Components/DiscussionBoard/PostThread";
+import PostThread from "./components/DiscussionBoard/PostThread";
 import { Navbar } from "./Navbar.js";
 import { Home } from "./pages/home.js";
 import { Directions } from "./pages/directions.js";
@@ -28,31 +25,56 @@ import { Bookings } from "./pages/bookings";
 import { CreateBooking } from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
 
-import UnreleasedMovies from "./Components/UnreleasedMovies";
-import MovieApp from "./Components/MovieApp";
-
-
+import UnreleasedMovies from "./components/UnreleasedMovies";
+import MovieApp from "./components/MovieApp";
 
 import Classifications from "./pages/Classifications";
-
 
 // issues with git
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  
   return (
     <div className="App">
       <loginContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Navbar />
         <Routes>
+          <Route
+            path="/SearchBar"
+            element={
+              <>
+                <SearchBar
+                  placeholder="Search for a movie..."
+                  data={BookData}
+                />
+              </>
+            }
+          ></Route>
 
-        <Route path = "/SearchBar" element = {<><SearchBar placeholder="Search for a movie..." data={BookData} /></>}></Route>
-        
-        <Route path = "/Contact" element = {<><Contact /></>}></Route>
-        <Route path = "/AboutUs" element = {<><AboutUs /></>}></Route>
-        <Route path = "/Moviev2app" element = {<><Moviev2app /></>}></Route>
-
+          <Route
+            path="/Contact"
+            element={
+              <>
+                <Contact />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/AboutUs"
+            element={
+              <>
+                <AboutUs />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/Moviev2app"
+            element={
+              <>
+                <Moviev2app />
+              </>
+            }
+          ></Route>
 
           <Route
             path="/Contact"
@@ -116,19 +138,15 @@ function App() {
           <Route path="/Classifications" element={<Classifications />} />
         </Routes>
       </loginContext.Provider>
-      
     </div>
-    
   );
 }
 
-
 export default App;
 
-//<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router 
+//<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router
 
 //<SearchBar placeholder="Search for a movie..." data={BookData} />    this is the search bar data import
-
 
 //<Route path = "/AddFavourites" element = {<><AddFavourites /></>}></Route>
 //<Route path = "/MovieList" element = {<><MovieList /></>}></Route>
@@ -136,11 +154,6 @@ export default App;
 //<Route path = "/SearchBox" element = {<><SearchBox /></>}></Route>
 //<Route path = "/RemoveFavourites" element = {<><RemoveFavourites /></>}></Route>
 
-
-
 //<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router
 
 //<SearchBar placeholder="Search for a movie..." data={BookData} />    this is the search bar data import
-
-
-

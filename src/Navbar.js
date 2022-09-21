@@ -21,8 +21,8 @@ export function Navbar() {
         <Link className="link" to="/directions">
           Directions
         </Link>
-        <Link className="link" to="/example">
-          Example
+        <Link className="link" to="/AboutUs">
+          About Us
         </Link>
 
         <div class="dropdown">
