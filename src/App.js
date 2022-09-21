@@ -4,8 +4,6 @@ import SearchBar from "./components/SearchBar";
 import BookData from "./Data.json";
 import Contact from "./components/Contact";
 
-
-
 //adding search and contact router
 import DiscussionBoard from "./components/DiscussionBoard/DiscussionBoard";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -20,11 +18,11 @@ import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
 import { useState } from "react";
 import { Bookings } from "./pages/bookings";
-import { CreateBooking} from "./pages/createBooking";
+import { CreateBooking } from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
 import UnreleasedMovies from "./components/UnreleasedMovies";
 import MovieApp from "./components/MovieApp";
-
+import Classifications from "./pages/Classifications";
 
 // issues with git
 function App() {
@@ -32,15 +30,17 @@ function App() {
 
   return (
     <div className="App">
-
-      
-
-
       <loginContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Navbar />
         <Routes>
-        <Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>
-        <Route path = "/Contact" element = {<><Contact /></>}></Route>
+          <Route
+            path="/Contact"
+            element={
+              <>
+                <Contact />
+              </>
+            }
+          ></Route>
           <Route
             path="/DiscussionBoard/page/:page"
             element={<DiscussionBoard />}
@@ -54,7 +54,8 @@ function App() {
                 <Home />
                 <Directions />
               </>
-            }></Route>
+            }
+          ></Route>
 
           <Route
             path="/signup"
@@ -62,14 +63,16 @@ function App() {
               <>
                 <SignUp />
               </>
-            }></Route>
+            }
+          ></Route>
           <Route
             path="/login"
             element={
               <>
                 <LogIn />
               </>
-            }></Route>
+            }
+          ></Route>
 
           {/* home page */}
           <Route path="/" element={<Home />}></Route>
@@ -80,20 +83,23 @@ function App() {
           <Route path="/logout" element={<Logout />}></Route>
 
           <Route path="/bookings" element={<Bookings />}></Route>
-          <Route path="/viewbookings" element={<ViewBookings />}> </Route>
-          <Route path="/createbooking" element={<CreateBooking />}> </Route>
-          <Route path="/Movies" element = {<MovieApp/>}/>
-            <Route path="/unreleasedMovies" element = {<UnreleasedMovies/>}/>
-
+          <Route path="/viewbookings" element={<ViewBookings />}>
+            {" "}
+          </Route>
+          <Route path="/createbooking" element={<CreateBooking />}>
+            {" "}
+          </Route>
+          <Route path="/Movies" element={<MovieApp />} />
+          <Route path="/unreleasedMovies" element={<UnreleasedMovies />} />
+          <Route path="/Classifications" element={<Classifications />} />
         </Routes>
       </loginContext.Provider>
     </div>
   );
 }
 
-//<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router 
+//<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router
 
 //<SearchBar placeholder="Search for a movie..." data={BookData} />    this is the search bar data import
-
 
 export default App;
