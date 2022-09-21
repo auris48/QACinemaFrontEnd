@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
+import  { useState, useEffect } from 'react';
 import SearchBar from "./Components/SearchBar";
 import BookData from "./Data.json";
 import Contact from "./Components/Contact";
 import AboutUs from "./Components/AboutPage/AboutUs";
-
+import Moviev2app from "./Components/Movies/Moviev2app"
 
 //adding search and contact router
 import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
@@ -18,7 +19,7 @@ import { SignUp } from "./pages/signup.js";
 import { LogIn } from "./pages/login";
 import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
-import { useState } from "react";
+
 import { Bookings } from "./pages/bookings";
 import { CreateBooking} from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
@@ -30,6 +31,7 @@ import MovieApp from "./Components/MovieApp";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
+  
   return (
     <div className="App">
 
@@ -43,6 +45,8 @@ function App() {
         
         <Route path = "/Contact" element = {<><Contact /></>}></Route>
         <Route path = "/AboutUs" element = {<><AboutUs /></>}></Route>
+        <Route path = "/Moviev2app" element = {<><Moviev2app /></>}></Route>
+
           <Route
             path="/DiscussionBoard/page/:page"
             element={<DiscussionBoard />}
@@ -89,13 +93,23 @@ function App() {
 
         </Routes>
       </loginContext.Provider>
+      
     </div>
+    
   );
 }
+
+
 
 //<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router 
 
 //<SearchBar placeholder="Search for a movie..." data={BookData} />    this is the search bar data import
 
+
+//<Route path = "/AddFavourites" element = {<><AddFavourites /></>}></Route>
+//<Route path = "/MovieList" element = {<><MovieList /></>}></Route>
+//<Route path = "/MovieListHeading" element = {<><MovieListHeading /></>}></Route>
+//<Route path = "/SearchBox" element = {<><SearchBox /></>}></Route>
+//<Route path = "/RemoveFavourites" element = {<><RemoveFavourites /></>}></Route>
 
 export default App;
