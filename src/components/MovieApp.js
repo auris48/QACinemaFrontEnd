@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./CSS/Movies.css";
 import { Button, Container } from "react-bootstrap";
+import SearchBar from "./SearchBar";
 
 const FEATURED_API = "http://localhost:3000/Movie";
 
@@ -15,6 +16,13 @@ function MovieApp() {
         setMovies(data);
       });
   }, []);
+
+  const handleFilter = () => {};
+  const onSearchSelect = (title) => {
+    console.log(title);
+    console.log("clicked");
+    setMovies([...movies].filter((movie) => movie.title === title));
+  };
 
   const filterUnreleasedMovies = () => {
     let releaseMovies = [];
@@ -32,31 +40,41 @@ function MovieApp() {
     })
   );
   return (
-    <div className="container">
-      {filterUnreleasedMovies().map((movie) => (
-        <div className="movie-componants">
-          <div className="movie-componant-header">
-            <p>{movie.title}</p>
-            <p>{movie.runTime}</p>
+    <div className="title">
+      <h>Currently Showing</h>
+      <SearchBar
+        data={movies}
+        onFilter={handleFilter}
+        handleClick={(title) => {
+          onSearchSelect(title);
+        }}
+      />
+      <div className="container">
+        {filterUnreleasedMovies().map((movie) => (
+          <div className="movie-componants">
+            <div className="movie-componant-header">
+              <p>{movie.title}</p>
+              <p>{movie.runTime}</p>
+            </div>
+
+            <img src={movie.imageURL}></img>
+
+            <div className="movie-details">
+              <p>{movie.description}</p>
+              <p>{movie.actors}</p>
+              <p>{movie.directors}</p>
+            </div>
+
+            <div className="movie-actions">
+              <button> Book Now </button>
+
+              <a href={movie.trailerURL}>
+                <button>Trailer</button>
+              </a>
+            </div>
           </div>
-
-          <img src={movie.imageURL}></img>
-
-          <div className="movie-details">
-            <p>{movie.description}</p>
-            <p>{movie.actors}</p>
-            <p>{movie.directors}</p>
-          </div>
-
-          <div className="movie-actions">
-            <button> Book Now </button>
-
-            <a href={movie.trailerURL}>
-              <button>Trailer</button>
-            </a>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

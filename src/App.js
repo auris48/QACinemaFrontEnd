@@ -34,14 +34,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route
-            path="/SearchBar"
-            element={
-              <>
-                <SearchBar />
-              </>
-            }
-          ></Route>
-          <Route
             path="/Contact"
             element={
               <>
