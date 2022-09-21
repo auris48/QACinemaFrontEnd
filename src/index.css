@@ -4,7 +4,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(66,62,58);
+  margin:0;
 }
+
 
 .App {
   position:relative;
@@ -13,6 +15,28 @@ body {
 .main-content-wrap {
   padding-bottom: 300px;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 /* git issues */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
