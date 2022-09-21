@@ -40,7 +40,7 @@ function MovieApp() {
     })
   );
   return (
-    <div className="title">
+    <div className="title_moive">
       <h>Currently Showing</h>
       <SearchBar
         data={movies}
@@ -66,7 +66,9 @@ function MovieApp() {
             </div>
 
             <div className="movie-actions">
-              <button> Book Now </button>
+              <a href="http://localhost:3001/createbooking">
+                <button>Book Now</button>
+              </a>
 
               <a href={movie.trailerURL}>
                 <button>Trailer</button>
