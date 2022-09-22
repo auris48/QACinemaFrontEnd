@@ -24,8 +24,10 @@ const Contact = () => {
         },
         (error) => {
           console.log(error.text);
+
         }
-      );
+      );          alert("Thank you for your email!")
+      e.target.rest();
   };
 
   return (

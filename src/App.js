@@ -1,15 +1,17 @@
 import React from "react";
 import "./App.css";
+import { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import BookData from "./Data.json";
-import Contact from "./components/Contact";
 
+import Contact from "./components/Contact";
+import AboutUs from "./components/AboutPage/AboutUs";
 //adding search and contact router
 import DiscussionBoard from "./components/DiscussionBoard/DiscussionBoard";
+import PostThread from "./components/DiscussionBoard/PostThread";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { Link, Routes, Route, useParams } from "react-router-dom";
-import PostThread from "./components/DiscussionBoard/PostThread";
 import { Navbar } from "./Navbar.js";
 import Footer from "./components/Footer/Footer";
 import { Home } from "./pages/home.js";
@@ -18,15 +20,13 @@ import { SignUp } from "./pages/signup.js";
 import { LogIn } from "./pages/login";
 import { Logout } from "./pages/logout";
 import { loginContext } from "./appContext/Context";
-import { useEffect, useState } from "react";
-import PaymentForm from "./components/PaymentForm/PaymentForm";
-import { Elements } from "@stripe/react-stripe-js";
 import { Bookings } from "./pages/bookings";
 import { CreateBooking } from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
 import CreateBookingV2 from "./pages/createBookingv2/createBookingv2";
 import UnreleasedMovies from "./components/UnreleasedMovies";
 import MovieApp from "./components/MovieApp";
+import Classifications from "./pages/Classifications";
 
 // issues with git
 function App() {
@@ -104,7 +104,6 @@ function App() {
             <Route path="/directions" element={<Directions />}></Route>
 
             <Route path="/logout" element={<Logout />}></Route>
-            <Route path="/PaymentForm" element={<PaymentForm />} />
 
             <Route path="/bookings" element={<Bookings />}></Route>
             <Route path="/viewbookings" element={<ViewBookings />}>
@@ -115,6 +114,7 @@ function App() {
             </Route>
             <Route path="/Movies" element={<MovieApp />} />
             <Route path="/unreleasedMovies" element={<UnreleasedMovies />} />
+            <Route path="/classifications" element={<Classifications />} />
           </Routes>
         </div>
         <Footer />
@@ -123,8 +123,8 @@ function App() {
   );
 }
 
+export default App;
+
 //<Route path = "/SearchBar" element = {<><SearchBar /></>}></Route>   this is the router
 
 //<SearchBar placeholder="Search for a movie..." data={BookData} />    this is the search bar data import
-
-export default App;

@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+
+.Css {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  gap: 5vw;
+  width: 90vw;
+}
+
+.PG {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.PG {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* 
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ */
+
+.PG {
+  font-family: Oxygen,
+    sans-serif;
+  text-align: center;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+  gap: 2rem;
+  justify-content: center;
+  width: 100px;
+}
+
+
+
+.card {
+  overflow: hidden;
+  box-shadow: 0 2px 20px grey;
+  border-radius: radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+
+  transition: transform 200ms ease-in;
+}
+
+.card_image {
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.description {
+  padding: 0 1rem;
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: bold;
+  align-items: center;
+  background: transparent;
+  color: white;
+  border-radius: 0%;
+  transition: 200ms ease-in, color 200ms ease-in;
+}
+
+.hover {
+  transform: scale(1.0);
+}
+
+.hover btn {
+  color: white;
+}
+
+.title_text {
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  display: block;
+  width: 100vw;
+
+}
