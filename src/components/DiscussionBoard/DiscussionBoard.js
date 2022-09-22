@@ -94,61 +94,63 @@ export default function DiscussionBoard() {
   };
 
   return (
-    <div className="dboard-wrapper">
-      <div className="dboard-controls">
-        <Pages currentPage={page} />
-        {loggedIn && (
-          <button
-            id="add-post-btn"
-            className="post-thread-submit-comment-button"
-            onClick={() => setAdding(true)}>
-            New Post
-          </button>
+    <div className="discussion-board">
+      <div className="dboard-wrapper">
+        <div className="dboard-controls">
+          <Pages currentPage={page} />
+          {loggedIn && (
+            <button
+              id="add-post-btn"
+              className="post-thread-submit-comment-button"
+              onClick={() => setAdding(true)}>
+              New Post
+            </button>
+          )}
+        </div>
+        {isAdding && (
+          <AddPostForm
+            bgOnClickHandler={() => {
+              setAdding(false);
+            }}
+            handleSubmit={handleSubmit}
+          />
         )}
-      </div>
-      {isAdding && (
-        <AddPostForm
-          bgOnClickHandler={() => {
-            setAdding(false);
-          }}
-          handleSubmit={handleSubmit}
-        />
-      )}
 
-      {isUpdating && (
-        <UpdatePostForm
-          bgOnClickHandler={() => {
-            setIsUpdating(false);
-          }}
-          handleSubmit={(e, id, newPost) => {
-            handleUpdatePost(e, id, newPost);
-          }}
-          {...postToUpdate}
-        />
-      )}
-      <div ref={listRef} className="dboard-post-list">
-        {posts && posts.length > 0 ? (
-          posts.map((data) => (
-            <Link
-              key={data._id}
-              to={`/DiscussionBoard/Post/${data._id}`}
-              style={{ width: "100%", textDecoration: "none" }}>
-              <Post
-                key={data._id}
-                {...data}
-                onDelete={handleDeletePost}
-                onUpdate={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setIsUpdating(true);
-                  setPostToUpdate(data);
-                }}
-              />
-            </Link>
-          ))
-        ) : (
-          <p className="no-posts-message">No posts yet...</p>
+        {isUpdating && (
+          <UpdatePostForm
+            bgOnClickHandler={() => {
+              setIsUpdating(false);
+            }}
+            handleSubmit={(e, id, newPost) => {
+              handleUpdatePost(e, id, newPost);
+            }}
+            {...postToUpdate}
+          />
         )}
+        <div ref={listRef} className="dboard-post-list">
+          {posts && posts.length > 0 ? (
+            posts.map((data) => (
+              <Link
+                key={data._id}
+                to={`/DiscussionBoard/Post/${data._id}`}
+                style={{ width: "100%", textDecoration: "none" }}>
+                <Post
+                  key={data._id}
+                  {...data}
+                  onDelete={handleDeletePost}
+                  onUpdate={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsUpdating(true);
+                    setPostToUpdate(data);
+                  }}
+                />
+              </Link>
+            ))
+          ) : (
+            <p className="no-posts-message">No posts yet...</p>
+          )}
+        </div>
       </div>
     </div>
   );

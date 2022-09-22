@@ -18,8 +18,7 @@ export default function PostThread() {
   const navigate = useNavigate();
   const { user } = useContext(loginContext);
   const { loggedIn } = useContext(loginContext);
-  
-  
+
   useEffect(() => {
     fetch(`http://localhost:3000/Posts/${id}`)
       .then((response) => response.json())
@@ -83,7 +82,10 @@ export default function PostThread() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content: e.target.replyMessage.value, user: user }),
+      body: JSON.stringify({
+        content: e.target.replyMessage.value,
+        user: user,
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -133,61 +135,65 @@ export default function PostThread() {
 
   return (
     <>
-      <div className="dboard-wrapper">
-        <button
-          onClick={() => navigate(-1)}
-          id="add-post-btn"
-          className="post-thread-submit-comment-button">
-          Back to forum
-        </button>
-        <div className="post-thread-opening-post-wrapper">
-          {movie && (
-            <div className="post-movie-poster">
-              <img alt="movie image" src={movie.imageURL} />
-              {renderRating()}
-            </div>
-          )}
-          <div className="opening-post-content-wrapper">
-            <h3 className="opening-post-title">{post.title}</h3>
-            <p className="opening-post-content">{post.content}</p>
-            <div className="opening-post-footer">
-              <span>{username}</span>
-              <span>{post.dateCreated && dateConverter(post.dateCreated)}</span>
+      <div className="discussion-board">
+        <div className="dboard-wrapper">
+          <button
+            onClick={() => navigate(-1)}
+            id="add-post-btn"
+            className="post-thread-submit-comment-button">
+            Back to forum
+          </button>
+          <div className="post-thread-opening-post-wrapper">
+            {movie && (
+              <div className="post-movie-poster">
+                <img alt="movie image" src={movie.imageURL} />
+                {renderRating()}
+              </div>
+            )}
+            <div className="opening-post-content-wrapper">
+              <h3 className="opening-post-title">{post.title}</h3>
+              <p className="opening-post-content">{post.content}</p>
+              <div className="opening-post-footer">
+                <span>{username}</span>
+                <span>
+                  {post.dateCreated && dateConverter(post.dateCreated)}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        {loggedIn ? (
-          <CommentForm handleSubmit={submitComment} />
-        ) : (
-          <p style={{ color: "white", margin: "0 auto", padding: "30px" }}>
-            You must log in to post comments
-          </p>
-        )}
-        <div ref={listRef} className="comments-container">
-          {post.comments && post.comments.length > 0 ? (
-            post.comments
-              .sort((a, b) => {
-                if (a.dateCreated > b.dateCreated) {
-                  return -1;
-                } else if (a.dateCreated < b.dateCreated) {
-                  return 1;
-                }
-                return 0;
-              })
-              .map((comment) => (
-                <Comment
-                  key={comment._id}
-                  handleReplySubmit={(e) => handleAddReply(e, comment._id)}
-                  handleDeleteComment={() => deleteComment(comment._id)}
-                  handleEditComment={(newComment) =>
-                    handleEditComment(comment._id, newComment)
-                  }
-                  {...comment}
-                />
-              ))
+          {loggedIn ? (
+            <CommentForm handleSubmit={submitComment} />
           ) : (
-            <p className="no-posts-message">No comments yet...</p>
+            <p style={{ color: "white", margin: "0 auto", padding: "30px" }}>
+              You must log in to post comments
+            </p>
           )}
+          <div ref={listRef} className="comments-container">
+            {post.comments && post.comments.length > 0 ? (
+              post.comments
+                .sort((a, b) => {
+                  if (a.dateCreated > b.dateCreated) {
+                    return -1;
+                  } else if (a.dateCreated < b.dateCreated) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((comment) => (
+                  <Comment
+                    key={comment._id}
+                    handleReplySubmit={(e) => handleAddReply(e, comment._id)}
+                    handleDeleteComment={() => deleteComment(comment._id)}
+                    handleEditComment={(newComment) =>
+                      handleEditComment(comment._id, newComment)
+                    }
+                    {...comment}
+                  />
+                ))
+            ) : (
+              <p className="no-posts-message">No comments yet...</p>
+            )}
+          </div>
         </div>
       </div>
     </>

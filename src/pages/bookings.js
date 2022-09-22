@@ -6,7 +6,6 @@ export function Bookings(){
 
     return <div className="bookingsHome">
     <button onClick = {()=>{navigate("/viewbookings")}}>View Bookings</button>
-
     <button onClick = {()=>{navigate("/createbooking")}}>Create Booking</button>
     </div>
 }

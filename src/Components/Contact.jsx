@@ -24,10 +24,10 @@ const Contact = () => {
         },
         (error) => {
           console.log(error.text);
-
         }
-      );          alert("Thank you for your email!")
-      e.target.rest();
+      );
+    alert("Thank you for your email!");
+    e.target.rest();
   };
 
   return (
@@ -50,11 +50,13 @@ export default Contact;
 // Styles
 const StyledContactForm = styled.div`
   width: 400px;
+  margin: 0 auto;
   form {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
+    padding: 20px;
     font-size: 16px;
     input {
       width: 100%;

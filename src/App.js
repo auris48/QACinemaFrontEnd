@@ -43,10 +43,6 @@ function App() {
     }
   }, []);
 
-
-
-  console.log(loggedIn);
-
   return (
     <div className="App">
       <loginContext.Provider value={{ loggedIn, setLoggedIn, user, setUser }}>
@@ -113,7 +109,8 @@ function App() {
             </Route>
             <Route path="/createbooking" element={<CreateBooking />}>
               {" "}
-            </Route>
+            </Route>/
+            <Route path="/AboutUs" element={<AboutUs />}></Route>
             <Route path="/Movies" element={<MovieApp />} />
             <Route path="/unreleasedMovies" element={<UnreleasedMovies />} />
             <Route path="/classifications" element={<Classifications />} />
