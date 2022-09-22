@@ -6,8 +6,6 @@ function AboutUs() {
   return (
     <div>
       <title>About Us Section</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="section">
         <div className="container">
           <div className="content-section">
@@ -29,9 +27,6 @@ function AboutUs() {
               Mailing Address: 3rd Floor, International House 1 St Katherine's
               Way, London E1W 1UN
               <p />
-              <div className="button">
-                <a href>Contact us</a>
-              </div>
             </div>
             <div className="social">
               <a href>
@@ -44,8 +39,6 @@ function AboutUs() {
                 <i className="fab fa-instagram" />
               </a>
             </div>
-
-            <img src />
           </div>
         </div>
 

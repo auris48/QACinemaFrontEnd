@@ -11,7 +11,7 @@ export function Navbar() {
   return (
     <nav>
       <div className="leftdiv">
-        <img src="/logo.jpg" alt="qalogo" />
+        <img className="qalogo" src="./qalogo.png" alt="qalogo" />
       </div>
 
       <div className="centerdiv">
@@ -21,13 +21,22 @@ export function Navbar() {
         <Link className="link" to="/directions">
           Directions
         </Link>
+
         <Link className="link" to="/AboutUs">
           About Us
         </Link>
 
-        <div class="dropdown">
-          <button class="dropbtn">Movies</button>
-          <div class="dropdown-content">
+        {loggedIn ? (
+          <Link className="link" to="/Bookings">
+            Bookings
+          </Link>
+        ) : (
+          <span></span>
+        )}
+
+        <div className="dropdown">
+          <button className="dropbtn">Movies &#11167;</button>
+          <div className="dropdown-content">
             <Link className="link" to="/Movies">
               Curently Showing
             </Link>
@@ -40,14 +49,6 @@ export function Navbar() {
           </div>
         </div>
 
-        {loggedIn ? (
-          <Link className="link" to="/Bookings">
-            Bookings
-          </Link>
-        ) : (
-          <span></span>
-        )}
-
         <Link className="link" to="/DiscussionBoard/page/1">
           Reviews
         </Link>
@@ -55,7 +56,11 @@ export function Navbar() {
 
       {loggedIn ? (
         <div>
-          <Logout loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          <Logout
+            style={{ marginLeft: "100px" }}
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+          />
         </div>
       ) : (
         <div className="rightdiv">

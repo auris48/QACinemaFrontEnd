@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./CSS/Movies.css";
 import { Button, Container } from "react-bootstrap";
-import SearchBar from "./SearchBar";
 
 const FEATURED_API = "http://localhost:3000/Movie";
 
@@ -17,11 +16,10 @@ function MovieApp() {
       });
   }, []);
 
-  const handleFilter = () => {};
   const onSearchSelect = (title) => {
-    console.log(title);
-    console.log("clicked");
-    setMovies([...movies].filter((movie) => movie.title === title));
+    setMovies((prevMovies) => {
+      [...prevMovies].filter((movie) => movie.title === title);
+    });
   };
 
   const filterUnreleasedMovies = () => {
@@ -40,43 +38,34 @@ function MovieApp() {
     })
   );
   return (
-    <div className="title_moive">
-      <h>Currently Showing</h>
-      <SearchBar
-        data={movies}
-        onFilter={handleFilter}
-        handleClick={(title) => {
-          onSearchSelect(title);
-        }}
-      />
-      <div className="container">
-        {filterUnreleasedMovies().map((movie) => (
-          <div className="movie-componants">
-            <div className="movie-componant-header">
-              <p>{movie.title}</p>
-              <p>{movie.runTime}</p>
-            </div>
+    <div className="container">
+      {filterUnreleasedMovies().map((movie, index) => (
+        <div key={index} className="movie-componants">
+          <div className="movie-componant-header">
+            <p>{movie.title}</p>
+            <p>{movie.runTime}</p>
+          </div>
 
-            <img src={movie.imageURL}></img>
+          <img src={movie.imageURL}></img>
 
-            <div className="movie-details">
-              <p>{movie.description}</p>
-              <p>{movie.actors}</p>
-              <p>{movie.directors}</p>
-            </div>
+          <div className="movie-details">
+            <p>{movie.description}</p>
+            <p>{movie.actors}</p>
+            <p>{movie.directors}</p>
+          </div>
+
 
             <div className="movie-actions">
               <a href="http://localhost:3001/createbooking">
                 <button href = "/createBooking">Book Now</button>
               </a>
 
-              <a href={movie.trailerURL}>
-                <button>Trailer</button>
-              </a>
-            </div>
+            <a href={movie.trailerURL}>
+              <button>Trailer</button>
+            </a>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

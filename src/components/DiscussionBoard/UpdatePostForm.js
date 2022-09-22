@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles/DiscussionBoardStyles.css";
 import StarRating from "./StarRating";
-import Select from "react-select";
 
 export default function UpdatePostForm(props) {
   const [moviesData, setMoviesData] = useState([]);

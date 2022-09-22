@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./styles/DiscussionBoardStyles.css";
 import StarRating from "./StarRating";
+
 export default function AddPostForm(props) {
   const [moviesData, setMoviesData] = useState([]);
   const [post, setPost] = useState({
@@ -9,7 +10,14 @@ export default function AddPostForm(props) {
     movie: "",
     rating: 1,
   });
-  console.log(post);
+
+  const checkInputs = () => {
+    if (post.title === "" || post.content === "" || post.movie === "") {
+        
+
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPost({ ...post, [name]: value });
@@ -46,7 +54,6 @@ export default function AddPostForm(props) {
             onChange={handleChange}
             value={post.content}
           />
-
           <select onChange={handleChange} name="movie" id="movie">
             <option selected disabled hidden>
               ---Select Movie---{" "}
