@@ -71,7 +71,7 @@ export const LogIn = () => {
 
   console.log("form submitted ");
   return (
-    <div>
+    <div  className='loginPage'>
       {isOpen && (
         <SignPopup
           content={popupcontent}
@@ -102,6 +102,7 @@ export const LogIn = () => {
           <button type="submit">Login</button>
         </form>
       </div>
+
     </div>
   );
 };

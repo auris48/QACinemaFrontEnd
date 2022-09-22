@@ -54,8 +54,11 @@ function MovieApp() {
             <p>{movie.directors}</p>
           </div>
 
-          <div className="movie-actions">
-            <button> Book Now </button>
+
+            <div className="movie-actions">
+              <a href="http://localhost:3001/createbooking">
+                <button href = "/createBooking">Book Now</button>
+              </a>
 
             <a href={movie.trailerURL}>
               <button>Trailer</button>

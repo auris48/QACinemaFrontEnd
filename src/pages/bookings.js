@@ -5,7 +5,7 @@ export function Bookings(){
     const navigate = useNavigate();
 
     return <div className="bookingsHome">
-    <button onClick = {()=>{navigate("/viewbookings")}}>View Bookings</button>
-    <button onClick = {()=>{navigate("/createbooking")}}>Create Booking</button>
+    <button className="button1" onClick = {()=>{navigate("/viewbookings")}}><p>View Bookings</p></button>
+    <button className="button2" onClick = {()=>{navigate("/createbooking")}}><p>Create Booking</p></button>
     </div>
 }
