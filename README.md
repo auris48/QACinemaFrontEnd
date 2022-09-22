@@ -34,42 +34,50 @@ In the project directory, you can run:
 
 1) The project must first be imported, which may be done by either downloading it as a zip file or by
 using the git command to clone it down:
-
+```
 https://github.com/auris48/QACinemaBackEnd
+```
+
+```
 https://github.com/auris48/QACinemaFrontEnd
+```
 
 2) Once its been cloned down you can access the folder through Visual Studio Code as shown below:
 
-image.png
+![](image.png)
 
-image.png
+![](image.png)
 
 3) Next, you must launch command windows in the frontend and backend folders and execute the command 
 
-image.png
+![](image.png)
 
-image.png
+![](image.png)
 
 This should install all the relevant files which is needed to run the QaCinema application from backend to frontend
 
  
 4) after the above step you can start the backend server via running the following:
 
-"nodemon index.js"
+```
+nodemon index.js
+```
 
 This will connect to your mongoDB and start the backend server. You will see the following output in your terminal once it is connected:
 
-image.png
+![](image.png)
 
 Then to start the frontend run the following:
 
-"npm start"
+```
+npm start
+```
 
-image.png
+![](image.png)
 
 This will then start up the website on your localhost at port 3001.
 
-image.png
+![](image.png)
 
 ### `npm start`
 
@@ -145,19 +153,27 @@ The "Documentation" folder contains all supporting documents, including those fr
 # API Keys and config file
 Api keys used for the frontend for emailjs
 
+```
 const config = {
     emailJsId: `your user id`
 }
 export default config;
+```
 
-# Authors
+## Authors
 
-# License
+* **Ross morrison** - [rossmorr](https://github.com/rossmorr)
+* **Mohammed Ahmed** - [Tufayel98](https://github.com/Tufayel98)
+* **Shahan shah** - [shahan306](https://github.com/shahan306)
+* **Aurimas pilnikovas** - [auris48](https://github.com/auris48)
+* **Jack hulatt** - [jackhulatt](https://github.com/jackhulatt)
 
-This project is licensed under the MIT license - see the LICENSE.md file for details
+## License
 
-For help in Choosing a license
+This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
 
-# Acknowledgments
+*For help in [Choosing a license](https://choosealicense.com/)*
+
+## Acknowledgments
 
 Thanks you to all the QAC Trainers
