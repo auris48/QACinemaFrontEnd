@@ -44,15 +44,15 @@ https://github.com/auris48/QACinemaFrontEnd
 
 2) Once its been cloned down you can access the folder through Visual Studio Code as shown below:
 
-![](backend.png)
+![](./READmeimages/finalprojectimage/backend.png)
 
-![](frontend.png)
+![](./READmeimages/finalprojectimage/frontend.png)
 
 3) Next, you must launch command windows in the frontend and backend folders and execute the command 
 
-![](backendnpm1.png)
+![](./READmeimages/finalprojectimage/backendnpmi.png)
 
-![](frontendnpmi.png)
+![](./READmeimages/finalprojectimage/frontendnpmi.png)
 
 This should install all the relevant files which is needed to run the QaCinema application from backend to frontend
 
@@ -65,7 +65,7 @@ nodemon index.js
 
 This will connect to your mongoDB and start the backend server. You will see the following output in your terminal once it is connected:
 
-![](nodemanstart.png)
+![](./READmeimages/finalprojectimage/nodemanstart.png)
 
 Then to start the frontend run the following:
 
@@ -73,11 +73,11 @@ Then to start the frontend run the following:
 npm start
 ```
 
-![](npmstart.png)
+![](./READmeimages/finalprojectimage/npmstart.png)
 
 This will then start up the website on your localhost at port 3001.
 
-![](homepage.png)
+![](./READmeimages/finalprojectimage/homepage.png)
 
 ### `npm start`
 
