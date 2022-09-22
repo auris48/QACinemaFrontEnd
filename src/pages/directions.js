@@ -3,6 +3,7 @@ import { MapContainer } from "./map";
 export function Directions() {
   return (
     <div className = "directionsCenter">
+      <div className="directionsBackground">
       <h1 className="directionsPageHeading">Where to find us!</h1>
       <div className="directionsPage">
         <img alt="cinema" src="/cinemapic.jpg"></img>
@@ -86,6 +87,7 @@ export function Directions() {
             </div>
           </div>
         </div>
+      </div>
       </div>
       <div className="mapAndHeading">
       <h1 className="directionsPageHeading">&#8595; We are here &#8595;</h1>
