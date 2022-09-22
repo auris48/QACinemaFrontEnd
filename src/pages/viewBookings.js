@@ -55,21 +55,26 @@ export function ViewBookings(){
 <h1 className="bookingsTitle">Your Bookings!</h1>
         {
             bookingJson.map((booking)=>{
-                return (
-                <div className="bookingPanel">
-                    <h1>Booking: {bookingnum++}</h1>
-                <h1>{booking.movieID.title}</h1>
-                <img alt ="moviepic"
-                src={booking.movieID.imageURL} className ="moviePic"
-                onError={({ currentTarget }) => {
-                    currentTarget.onerror = null;
-                    currentTarget.src = "/placeholder.jpg";
-                }} />
-                <h1>Adult: {booking.noOfTickets.noOfAdult} Child:{booking.noOfTickets.noOfChild} Concession:{booking.noOfTickets.noOfConcession}</h1>
-                <h1>{booking.day}/{booking.month}/{booking.year} {booking.time}</h1>
+                console.log(booking.userID)
+                if(booking.userID == JSON.parse(sessionStorage.getItem("user"))._id){
+                    return (
+                        <div className="bookingPanel">
+                            <h1>Booking: {bookingnum++}</h1>
+                        <h1>{booking.movieID.title}</h1>
+                        <img alt ="moviepic"
+                        src={booking.movieID.imageURL} className ="moviePic"
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null;
+                            currentTarget.src = "/placeholder.jpg";
+                        }} />
+                        <h1>Adult: {booking.noOfTickets.noOfAdult} Child:{booking.noOfTickets.noOfChild} Concession:{booking.noOfTickets.noOfConcession}</h1>
+                        <h1>{booking.day}/{booking.month}/{booking.year} {booking.time}</h1>
+        
+        
+                        </div>)
 
-
-                </div>)
+                }
+                
             })
         }
 
