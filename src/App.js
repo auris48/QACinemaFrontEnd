@@ -27,6 +27,8 @@ import CreateBookingV2 from "./pages/createBookingv2/createBookingv2";
 import UnreleasedMovies from "./components/UnreleasedMovies";
 import MovieApp from "./components/MovieApp";
 import Classifications from "./pages/Classifications";
+import PaymentSuccess from "./components/PaymentResponses/Success";
+import { ViewVenues } from "./pages/venues";
 
 // issues with git
 function App() {
@@ -63,7 +65,6 @@ function App() {
                   <Contact />
                 </>
               }></Route>
-
             <Route
               path="/DiscussionBoard/page/:page"
               element={<DiscussionBoard user={user} loggedIn={loggedIn} />}
@@ -78,7 +79,6 @@ function App() {
                   <Directions />
                 </>
               }></Route>
-
             <Route
               path="/signup"
               element={
@@ -93,30 +93,27 @@ function App() {
                   <LogIn />
                 </>
               }></Route>
-
             <Route path="/ccbv2" element={<CreateBookingV2 />} />
             {/* home page */}
             <Route path="/" element={<Home />}></Route>
-
             {/* directions page */}
             <Route path="/directions" element={<Directions />}></Route>
-
             <Route path="/logout" element={<Logout />}></Route>
-
             <Route path="/bookings" element={<Bookings />}></Route>
             <Route path="/viewbookings" element={<ViewBookings />}>
               {" "}
             </Route>
             <Route path="/createbooking" element={<CreateBooking />}>
               {" "}
-            </Route>/
-            <Route path="/AboutUs" element={<AboutUs />}></Route>
+            </Route>
+            /<Route path="/AboutUs" element={<AboutUs />}></Route>
             <Route path="/Movies" element={<MovieApp />} />
+            <Route path="/Venues" element={<ViewVenues />} />
             <Route path="/unreleasedMovies" element={<UnreleasedMovies />} />
             <Route path="/classifications" element={<Classifications />} />
+            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
           </Routes>
         </div>
-        <Footer />
       </loginContext.Provider>
     </div>
   );
