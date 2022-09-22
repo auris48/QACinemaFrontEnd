@@ -79,7 +79,7 @@ export function CreateBooking() {
                 referrerPolicy: 'no-referrer',
                 body:
                     JSON.stringify({
-                        "userID": "6321d9400853a681d0bbd453",
+                        "userID": JSON.parse(sessionStorage.getItem("user"))._id,
                         "movieID": movieID,
                         "year": movieDateToPost.year,
                         "month": movieDateToPost.month,

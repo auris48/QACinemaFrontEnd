@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
 
+#aboutUs{
+	display: flex;
+	justify-content: center;
+	/* text-align: center; */
+
+}
+
 .section{
 	width: 100%;
 	min-height: 100vh;
@@ -65,3 +72,7 @@
 	text-align: center;
 }
 
+.contactForm {
+	margin-top: -50px;
+	padding-bottom: 50px;
+}

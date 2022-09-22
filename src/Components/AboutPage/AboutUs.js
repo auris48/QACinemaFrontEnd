@@ -7,7 +7,7 @@ function AboutUs() {
     <div>
       <title>About Us Section</title>
       <div className="section">
-        <div className="container">
+        <div className="container" id="aboutUs">
           <div className="content-section">
             <div className="title">
               <h1>About Us</h1>
@@ -20,7 +20,7 @@ function AboutUs() {
                 shortly!
               </p>
               <h3>Email:</h3>
-              example@example.com (feel free to use the form on the right!)
+              example@example.com (feel free to use the form below)
               <h3>Phone Number:</h3>
               0345 074 7829
               <h3>Mailing Address:</h3>
@@ -42,7 +42,9 @@ function AboutUs() {
           </div>
         </div>
 
-        <Contact />
+<div className="contactForm">
+        <Contact/>
+        </div>
       </div>
     </div>
   );
