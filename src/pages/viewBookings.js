@@ -59,7 +59,6 @@ export function ViewBookings(){
                 <div className="bookingPanel">
                     <h1>Booking: {bookingnum++}</h1>
                 <h1>{booking.movieID.title}</h1>
-                <h1>{booking.day}/{booking.month}/{booking.year}</h1>
                 <img alt ="moviepic"
                 src={booking.movieID.imageURL} className ="moviePic"
                 onError={({ currentTarget }) => {
@@ -67,7 +66,7 @@ export function ViewBookings(){
                     currentTarget.src = "/placeholder.jpg";
                 }} />
                 <h1>Adult: {booking.noOfTickets.noOfAdult} Child:{booking.noOfTickets.noOfChild} Concession:{booking.noOfTickets.noOfConcession}</h1>
-                <h1>Time: {booking.time}</h1>
+                <h1>{booking.day}/{booking.month}/{booking.year} {booking.time}</h1>
 
 
                 </div>)
