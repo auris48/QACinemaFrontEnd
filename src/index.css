@@ -305,3 +305,18 @@ nav .link{
   width: 100%;
   text-align: center;
 }
+
+.viewBookingsPage .venuePic{
+  width: 25vw;
+  height: 35vh;
+}
+
+.viewBookingsPage .venuePanel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  background-color: gray;
+  border-radius: 20px;
+  height: 70vh;
+}

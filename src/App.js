@@ -22,6 +22,7 @@ import { useState } from "react";
 import { Bookings } from "./pages/bookings";
 import { CreateBooking} from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
+import { ViewVenues } from "./pages/venues.js";
 import UnreleasedMovies from "./components/UnreleasedMovies";
 import MovieApp from "./components/MovieApp";
 
@@ -84,6 +85,7 @@ function App() {
           <Route path="/createbooking" element={<CreateBooking />}> </Route>
           <Route path="/Movies" element = {<MovieApp/>}/>
             <Route path="/unreleasedMovies" element = {<UnreleasedMovies/>}/>
+            <Route path="/venues" element = {<ViewVenues/>}/>
 
         </Routes>
       </loginContext.Provider>
