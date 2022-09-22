@@ -9,20 +9,9 @@ export function SignUp(){
       setIsOpen(!isOpen);
     }
 
-    useEffect(() => {
-      // setpopupcontent("not");
-
-    }, [isOpen]);
 
     const handleSubmit = async function (event) {
         event.preventDefault();
-        // console.log("test");
-        // const data = new FormData(event.target);
-        // console.log(JSON.stringify(data));
-
-        // console.log(data.get('username'));
-        // console.log(event.target.username.value);
-
         const response = await fetch("http://localhost:3000/register", {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
@@ -63,7 +52,7 @@ export function SignUp(){
         console.log('form submitted ');
       ;
 
-    return <div>
+    return <div className='signUpPage'>
       { isOpen && <SignPopup content ={popupcontent} handleClose = {() => {togglePopup();}}
       />}
     <div className="signUpDiv">

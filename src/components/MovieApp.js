@@ -67,7 +67,7 @@ function MovieApp() {
 
             <div className="movie-actions">
               <a href="http://localhost:3001/createbooking">
-                <button>Book Now</button>
+                <button href = "/createBooking">Book Now</button>
               </a>
 
               <a href={movie.trailerURL}>

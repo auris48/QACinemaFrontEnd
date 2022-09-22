@@ -137,7 +137,8 @@ export function CreateBooking() {
 
 
     return <div className="createBookingPage">
-        <h1>Create Booking</h1>
+        <div className="pageOutline">
+        <h1 className="bookingsTitle">Create Booking</h1>
         <div className="moviePanel">
             <img alt ="moviepic" className="moviePicture"
                 src={moviePic}
@@ -229,7 +230,7 @@ export function CreateBooking() {
 
 
             <div className="ticketSelects">
-                <h4>Number of tickets</h4>
+                <h4>Number of tickets:</h4>
                 <select onChange={(event) => { setTotalPrice({ ...totalPrice, adult: event.target.value }) }
                 }>
                     <option value={0}>Adult (£10 per ticket)</option>
@@ -259,12 +260,13 @@ export function CreateBooking() {
 
         </div>
 
-        <h1>{"£" + (Number(totalPrice.adult*10) + Number(totalPrice.child*5) + Number(totalPrice.concession*8))}</h1>
+        <h1 class ="priceTag">{"£" + (Number(totalPrice.adult*10) + Number(totalPrice.child*5) + Number(totalPrice.concession*8))}</h1>
 
         <button onClick={() => handleSubmit()}>Submit booking</button>
 
         { isOpen && <SignPopup content ={popupcontent} handleClose = {() => {togglePopup();}}
       />}
+    </div>
     </div>
 }
 

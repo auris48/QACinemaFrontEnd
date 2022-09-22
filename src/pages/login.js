@@ -85,7 +85,7 @@ export const LogIn = () =>{
 
 
 
-    return<div>
+    return<div className='loginPage'>
               { isOpen && <SignPopup content ={popupcontent} handleClose = {() => {togglePopup();}}
       />}
     <div className="logInDiv">
