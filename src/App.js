@@ -24,7 +24,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { Bookings } from "./pages/bookings";
 import { CreateBooking } from "./pages/createBooking";
 import { ViewBookings } from "./pages/viewBookings";
-import CreateBookingV2 from "./pages/createBookingv2";
+import CreateBookingV2 from "./pages/createBookingv2/createBookingv2";
 import UnreleasedMovies from "./components/UnreleasedMovies";
 import MovieApp from "./components/MovieApp";
 
