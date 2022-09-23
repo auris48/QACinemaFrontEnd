@@ -47,7 +47,7 @@ export default function AddPostForm(props) {
             const check = checkInputs();
             e.preventDefault();
             if (check !== true) {
-              return alert(checkInputs());
+              return alert(check);
             } else {
               return props.handleSubmit(e, post);
             }
