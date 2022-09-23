@@ -95,6 +95,16 @@ export function Directions() {
         <MapContainer />
       </div>
     </div>
+    <p className="times">Opening Times: <br />
+
+Mon: 12:00 - 23:00 <br />
+Tue: 12:00 - 23:00 <br />
+Wed: 12:00 - 23:00 <br />
+Thu: 12:00 - 23:00 <br />
+Fri: 12:00 - 02:00 <br />
+Sat: 10:00 - 02:00 <br />
+Sun: 10:00 - 23:00</p>
+    </div>
     </div>
   );
 }

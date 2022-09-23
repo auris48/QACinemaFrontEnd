@@ -192,6 +192,15 @@ nav .link:hover {
   /* align-items: center; */
 }
 
+.directionsCenter .times{
+  color: white;
+  position: absolute;
+  right: 21%;
+  top: 7%;
+  font-size: 11px;
+  background-color: rgba(0,0,0,0.2);
+}
+
 .directionsBackground{
   background-color: rgba(30,30,30, 0.8);
   height: 40rem;
