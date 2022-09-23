@@ -12,10 +12,15 @@ export default function AddPostForm(props) {
   });
 
   const checkInputs = () => {
-    if (post.title === "" || post.content === "" || post.movie === "") {
-        
-
+    if (post.title.length < 5) {
+      return "Title must be at least 5 characters long";
     }
+    if (post.content.length < 5)
+      return "Content must be at least 5 characters long";
+    if (!post.movie) {
+      return "You must select a movie";
+    }
+    return true;
   };
 
   const handleChange = (e) => {
@@ -37,7 +42,16 @@ export default function AddPostForm(props) {
         onClick={() => props.bgOnClickHandler(false)}
         className="dboard-pagemask"></div>
       <div className="add-post-wrapper">
-        <form onSubmit={(e) => props.handleSubmit(e, post)}>
+        <form
+          onSubmit={(e) => {
+            const check = checkInputs();
+            e.preventDefault();
+            if (check !== true) {
+              return alert(check);
+            } else {
+              return props.handleSubmit(e, post);
+            }
+          }}>
           <input
             type="text"
             id="title"
