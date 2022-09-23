@@ -49,7 +49,7 @@ export default function UpdatePostForm(props) {
             const check = checkInputs();
             e.preventDefault();
             if (check !== true) {
-              return alert(checkInputs());
+              return alert(check);
             } else {
               return props.handleSubmit(e, props._id, newPost);
             }
