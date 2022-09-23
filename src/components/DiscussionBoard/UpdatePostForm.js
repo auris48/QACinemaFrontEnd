@@ -18,6 +18,18 @@ export default function UpdatePostForm(props) {
     setNewPost({ ...newPost, [name]: value });
   };
 
+  const checkInputs = () => {
+    if (newPost.title.length < 5) {
+      return "Title must be at least 5 characters long";
+    }
+    if (newPost.content.length < 5)
+      return "Content must be at least 5 characters long";
+    if (!newPost.movie) {
+      return "You must select a movie";
+    }
+    return true;
+  };
+
   useEffect(() => {
     fetch(`http://localhost:3000/Movie`).then((response) =>
       response.json().then((data) => {
@@ -32,7 +44,16 @@ export default function UpdatePostForm(props) {
         onClick={() => props.bgOnClickHandler(false)}
         className="dboard-pagemask"></div>
       <div className="add-post-wrapper">
-        <form onSubmit={(e) => props.handleSubmit(e, props._id, newPost)}>
+        <form
+          onSubmit={(e) => {
+            const check = checkInputs();
+            e.preventDefault();
+            if (check !== true) {
+              return alert(checkInputs());
+            } else {
+              return props.handleSubmit(e, props._id, newPost);
+            }
+          }}>
           <input
             type="text"
             id="title"
