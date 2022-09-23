@@ -1,10 +1,83 @@
+# QACinema-Project
+
+# QA Cinema Website by Team Bravo
+
+This project focuses on a movie website that was created with the MERN (MongoDB, Express, React, Node) stack.
+Express was used to build the backend by generating multiple API queries. Using axios and fetch in the frontend,
+the data for the requests was obtained from a cloud mongo database. Virtual Studios were used to build the frontend.
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can use this guide to set up a local development copy of the project on your computer. For information about
+deploying the project on a live system, see deployment.
 
-## Available Scripts
+# Installing for Windows machine
+
+A detailed set of instructions with examples that show you how to set up a development environment.
+
+# Prerequisites
+
+Install the following before you begin:
+
+Choose any other code editor of your choosing, such as Microsoft Visual Studio Code.
+To install necessary modules, use Node.js.
+It is possible to host MongoDB Server locally or in the cloud using MongoDB Atlas Cloud Database.
+Additional resources
+
+To test API calls to and from the database, use Postman.
+
+# Available Scripts
 
 In the project directory, you can run:
+
+# Importing and running QA Cinema website
+
+1) The project must first be imported, which may be done by either downloading it as a zip file or by
+using the git command to clone it down:
+```
+https://github.com/auris48/QACinemaBackEnd
+```
+
+```
+https://github.com/auris48/QACinemaFrontEnd
+```
+
+2) Once its been cloned down you can access the folder through Visual Studio Code as shown below:
+
+![](./READmeimages/finalprojectimage/backend.png)
+
+![](./READmeimages/finalprojectimage/frontend.png)
+
+3) Next, you must launch command windows in the frontend and backend folders and execute the command 
+
+![](./READmeimages/finalprojectimage/backendnpmi.png)
+
+![](./READmeimages/finalprojectimage/frontendnpmi.png)
+
+This should install all the relevant files which is needed to run the QaCinema application from backend to frontend
+
+ 
+4) after the above step you can start the backend server via running the following:
+
+```
+nodemon index.js
+```
+
+This will connect to your mongoDB and start the backend server. You will see the following output in your terminal once it is connected:
+
+![](./READmeimages/finalprojectimage/nodemanstart.png)
+
+Then to start the frontend run the following:
+
+```
+npm start
+```
+
+![](./READmeimages/finalprojectimage/npmstart.png)
+
+This will then start up the website on your localhost at port 3001.
+
+![](./READmeimages/finalprojectimage/homepage.png)
 
 ### `npm start`
 
@@ -68,3 +141,39 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Versioning
+
+We use SemVer for versioning.
+
+# Supporting Documentation
+
+The "Documentation" folder contains all supporting documents, including those from the planning phase and any external documents used in the project.
+
+# API Keys and config file
+Api keys used for the frontend for emailjs
+
+```
+const config = {
+    emailJsId: `your user id`
+}
+export default config;
+```
+
+## Authors
+
+* **Ross morrison** - [rossmorr](https://github.com/rossmorr)
+* **Mohammed Ahmed** - [Tufayel98](https://github.com/Tufayel98)
+* **Shahan shah** - [shahan306](https://github.com/shahan306)
+* **Aurimas pilnikovas** - [auris48](https://github.com/auris48)
+* **Jack hulatt** - [jackhulatt](https://github.com/jackhulatt)
+
+## License
+
+This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
+
+*For help in [Choosing a license](https://choosealicense.com/)*
+
+## Acknowledgments
+
+Thanks you to all the QAC Trainers
