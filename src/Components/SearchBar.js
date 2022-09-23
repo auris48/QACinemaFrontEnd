@@ -3,7 +3,7 @@ import "./SearchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 
-function SearchBar({ handleClick, placeholder, data }) {
+function SearchBar({ handleClick, placeholder, data, handleCancel }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -39,7 +39,13 @@ function SearchBar({ handleClick, placeholder, data }) {
           {filteredData.length === 0 ? (
             <SearchIcon />
           ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
+            <CloseIcon
+              id="clearBtn"
+              onClick={(e) => {
+                clearInput();
+                return handleCancel;
+              }}
+            />
           )}
         </div>
       </div>

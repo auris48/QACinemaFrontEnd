@@ -1,13 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useContext } from "react";
 import { SignPopup } from "./signupPopup";
 import { useForkRef } from "@mui/material";
+import { loginContext } from "../appContext/Context";
 
 export function CreateBooking() {
   const [isOpen, setIsOpen] = useState(false);
   const [popupcontent, setpopupcontent] = useState("initial");
-
+  const { user, setUser } = useContext(loginContext);
+  const { id } = useParams();
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
@@ -36,6 +39,13 @@ export function CreateBooking() {
   useEffect(() => {
     console.log(movieDateToPost);
   }, [movieDateToPost]);
+
+  useEffect(() => {
+    if (id && movieData) {
+      console.log(id);
+      setMovieID(id);
+    }
+  }, [id, movieData]);
 
   useEffect(() => {
     retrieveMovies();
@@ -95,7 +105,7 @@ export function CreateBooking() {
           redirect: "follow", // manual, *follow, error
           referrerPolicy: "no-referrer",
           body: JSON.stringify({
-            userID: "6321d9400853a681d0bbd453",
+            userID: user._id,
             movieID: movieID,
             year: movieDateToPost.year,
             month: movieDateToPost.month,
@@ -150,12 +160,21 @@ export function CreateBooking() {
       });
       if (response.ok) {
         filmsjson = await response.json();
-        setMovieID(filmsjson[0]._id);
-        setMovieName(filmsjson[0].title);
-        setMoviePic(filmsjson[0].imageURL);
-        setMovieDesc(filmsjson[0].description);
+        if (id) {
+          const movie = filmsjson.find((movie) => movie._id === id);
+          setMovieID(id);
+          setMovieName(movie.name);
+          setMoviePic(movie.imageURL);
+          setMovieDesc(movie.description);
+          setMovieDays(movie.dayShowing);
+        } else {
+          setMovieID(filmsjson[0]._id);
+          setMovieName(filmsjson[0].title);
+          setMoviePic(filmsjson[0].imageURL);
+          setMovieDesc(filmsjson[0].description);
+          setMovieDays(filmsjson[0].dayShowing);
+        }
         setMovieData(filmsjson);
-        setMovieDays(filmsjson[0].dayShowing);
       }
     } catch (error) {
       console.error(error);
@@ -183,28 +202,29 @@ export function CreateBooking() {
         </div>
 
         <div className="selectForm">
-          <div className="selectDiv">
-            <h4>Select a movie:</h4>
-            <select
-              onChange={(event) => {
-                for (let movie of movieData) {
-                  if (event.target.value === movie._id) {
-                    setMovieID(movie._id);
-                    setMovieName(movie.title);
-                    setMovieDesc(movie.description);
-                    setMoviePic(movie.imageURL);
-                    setMovieDays(movie.dayShowing);
+          {!id && (
+            <div className="selectDiv">
+              <h4>Select a movie:</h4>
+              <select
+                onChange={(event) => {
+                  for (let movie of movieData) {
+                    if (event.target.value === movie._id) {
+                      setMovieID(movie._id);
+                      setMovieName(movie.title);
+                      setMovieDesc(movie.description);
+                      setMoviePic(movie.imageURL);
+                      setMovieDays(movie.dayShowing);
+                    }
                   }
-                }
-              }}>
-              {movieData.map((optiondata) => {
-                return (
-                  <option value={optiondata._id}> {optiondata.title}</option>
-                );
-              })}
-            </select>
-          </div>
-
+                }}>
+                {movieData.map((optiondata) => {
+                  return (
+                    <option value={optiondata._id}> {optiondata.title}</option>
+                  );
+                })}
+              </select>
+            </div>
+          )}
           <div className="selectDiv">
             <h4>Select a date:</h4>
             <select

@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { loginContext } from "../appContext/Context";
 
 export function Home() {
   const [movies, setMovies] = useState([]);
-
+  const { loggedIn } = useContext(loginContext);
   const navigationImagesArray = [
     "https://i.pinimg.com/originals/0c/0d/0d/0c0d0d1b1b1b1b1b1b1b1b1b1b1b1b1b.jpg",
     "https://octaneseating.com/pub/media/catalog/category/fanfare-main-image.jpg",
@@ -54,8 +55,9 @@ export function Home() {
             />
             <div className="slider-movie-info">
               <h1>{movie.title}</h1>
-              <p>{movie.releaseDate}</p>
-              <Link to="/booking">Book Now</Link>
+              <Link to={loggedIn ? `/createbooking/${movie._id}` : "/login"}>
+                Book Now
+              </Link>
             </div>
           </div>
         ))}

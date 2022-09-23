@@ -33,13 +33,13 @@ export function ViewVenues() {
       <h1 className="bookingsTitle">Nearby Venues</h1>
       {bookingJson.map((venue) => {
         return (
-          <div className="venuePanel">
+          <div className="bookingPanel">
             <h1>{venue.name}</h1>
             <h1>{venue.openingTimes}</h1>
             <img
               alt="moviepic"
               src={venue.imageURL}
-              className="venuePic"
+              className="moviePic"
               onError={({ currentTarget }) => {
                 currentTarget.onerror = null;
                 currentTarget.src = "/placeholder.jpg";

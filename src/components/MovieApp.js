@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./CSS/Movies.css";
 import { Button, Container } from "react-bootstrap";
 import SearchBar from "./SearchBar";
-
+import { useContext } from "react";
+import { loginContext } from "../appContext/Context";
 const FEATURED_API = "http://localhost:3000/Movie";
 
 function MovieApp() {
   const [movies, setMovies] = useState([]);
+  const [clearSearch, setClearSearch] = useState(false);
+  const { loggedIn } = useContext(loginContext);
 
   useEffect(() => {
     fetch(FEATURED_API)
@@ -17,10 +20,18 @@ function MovieApp() {
       });
   }, []);
 
+  useEffect(() => {
+    console.log("hello world");
+    fetch(FEATURED_API)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setMovies(data);
+      });
+  }, [clearSearch]);
+
   const handleFilter = () => {};
   const onSearchSelect = (title) => {
-    console.log(title);
-    console.log("clicked");
     setMovies([...movies].filter((movies) => movies.title === title));
   };
 
@@ -39,12 +50,21 @@ function MovieApp() {
       return movie.releaseDate < Date.now;
     })
   );
+
+  const onSearchCancel = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("hi");
+    setClearSearch((prev) => !prev);
+  };
+
   return (
     <div className="headerForTitle">
       <h>Watch Now</h>
       <SearchBar
-        data={movies}
+        data={filterUnreleasedMovies()}
         onFilter={handleFilter}
+        handleCancel={onSearchCancel}
         handleClick={(title) => {
           onSearchSelect(title);
         }}
@@ -67,7 +87,12 @@ function MovieApp() {
             </div>
 
             <div className="movie-actions">
-              <a href="http://localhost:3001/createbooking">
+              <a
+                href={
+                  loggedIn
+                    ? `http://localhost:3001/createbooking/${movie._id}`
+                    : "/login"
+                }>
                 <button href="/createBooking">Book Now</button>
               </a>
 

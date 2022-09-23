@@ -104,15 +104,19 @@ function App() {
               {" "}
             </Route>
             <Route path="/createbooking" element={<CreateBooking />}>
-              {" "}
+              <Route path="/createbooking/:id" element={<CreateBooking />} />{" "}
             </Route>
             /<Route path="/AboutUs" element={<AboutUs />}></Route>
             <Route path="/Movies" element={<MovieApp />} />
             <Route path="/Venues" element={<ViewVenues />} />
             <Route path="/unreleasedMovies" element={<UnreleasedMovies />} />
             <Route path="/classifications" element={<Classifications />} />
-            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+            <Route
+              path="/success/:booking/:session_id"
+              element={<PaymentSuccess />}
+            />
           </Routes>
+          <Footer />
         </div>
       </loginContext.Provider>
     </div>
