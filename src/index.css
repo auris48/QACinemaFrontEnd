@@ -1,13 +1,492 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(31,32,34);
+  margin: 0;
 }
 
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+.main-content-wrap {
+  padding-bottom: 320px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* git issues */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  font-size: 1rem;
+  width: 100%;
+  background-color: rgba(40, 38, 155, 0.747);
+  justify-content: space-between;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+nav img {
+  height: 5rem;
+}
+
+nav .link {
+  text-decoration: none;
+  color: rgb(220, 220, 220);
+  margin-left: 15px;
+  margin-right: 15px;
+  transition: all 0.3s ease;
+}
+
+
+nav .link:hover {
+  color: rgb(165, 164, 164);
+  font-size: large;
+}
+
+.signUpDiv {
+  position: relative;
+  top: 10vh;
+  background-color: rgb(200, 200, 200);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  height: 40rem;
+  width: 25%;
+  margin-bottom: 200px;
+}
+
+.signUpDiv .signUpForm {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  height: 80%;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.signUpDiv .signUpField {
+  width: 100%;
+}
+
+.signUpDiv .signUpField input {
+  width: 100%;
+}
+
+.signPopup {
+  z-index: 1;
+  position: absolute;
+  display: inline;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(220, 220, 220, 0.3);
+}
+
+.signPopup h1 {
+  font-size: 3rem;
+  background-color: rgba(220, 220, 220, 0.8);
+  display: inline;
+  position: relative;
+  text-align: center;
+  top: 30vh;
+  border-radius: 5px;
+  padding: 10px;
+  /* z-index: 1; */
+  color: rgba(32, 29, 25, 1);
+}
+
+.signPopup button {
+  border-radius: 50%;
+  display: inline;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border: 1px solid black;
+  height: 2em;
+  width: 2em;
+}
+
+.logInDiv {
+  position: relative;
+  top: 15vh;
+  background-color: rgb(200, 200, 200);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  height: 20rem;
+  width: 25%;
+
+
+}
+
+.logInDiv .logInForm {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  height: 60%;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.logInDiv .logInField {
+  width: 100%;
+}
+
+.logInDiv .logInField input {
+  width: 100%;
+}
+
+.directionsPageHeading {
+  color: rgb(230, 230, 230);
+  text-align: center;
+  margin: 0;
+  padding-top: 50px;
+}
+
+.directionsCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.directionsBackground{
+  background-color: rgba(30,30,30, 0.8);
+  height: 40rem;
+  width: 70vw;
+  position: relative;
+  margin-top: 60px;
+  left: 15vw;
+}
+
+.directionsPage {
+  display: flex;
+  justify-content: center;
+  color: rgb(230, 230, 230);
+}
+
+.directionsPage p {
+  display: inline;
+
+}
+
+.directionsPage img {
+  margin-top: 50px;
+  height: 21rem;
+}
+
+.directionsCenter{
+  background-image: url("../public/max-bender-VmX3vmBecFE-unsplash.jpg");
+}
+
+.directionsPage .directionsParagraph {
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+
+.directionsPage .directionsText {
+  /* background-color: grey; */
+  display: flex;
+  height: 20rem;
+  width: 40rem;
+
+  text-align: left;
+
+}
+
+.directionsPage .textBlock {
+  margin-bottom: 10px;
+}
+
+.directionsPage .directionsLeft {
+  margin-right: 30px;
+}
+
+.directionsPage .directionsRight {
+  margin-left: 30px;
+}
+
+.mapAndHeading{
+  margin-top: 2%;
+}
+
+.map {
+  display: inline-block;
+  margin: auto;
+  margin-top: 20px;
+
+
+  width: 82%;
+  position: relative;
+  left: 8.5%;
+  margin-bottom: 50px;
+}
+
+.bookingsHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 10rem;
+  background-image: url("../public/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg");
+  background-size: cover;
+}
+
+.bookingsHome button {
+  height: 70vh;
+  width: 30vw;
+}
+
+
+.bookingsHome p{
+  font-size: 3rem;
+  color: gray;
+  -webkit-text-stroke: black 2px;
+}
+
+.bookingsHome .button1{
+ background-image: url("../public/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg");
+ background-size: cover;
+}
+
+.bookingsHome .button2{
+  background-image: url("../public/bookingButton.jpg");
+  background-size: cover;
+}
+
+.createBookingPage {
+  display: flex;
+  flex-direction: column;
+  height: 50vw;
+  /* justify-content: center; */
+  align-items: center ;
+  background-image: url("../public/kilyan-sockalingum-nW1n9eNHOsc-unsplash.jpg");
+  background-size: cover;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.createBookingPage .pageOutline{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 4px black;
+  background-color: rgba(220,220,220, 0.8);
+
+}
+
+.createBookingPage h1{
+  font-family: 'Aref Ruqaa Ink', serif;
+}
+
+.createBookingPage .bookingsTitle{
+  width: 100%;
+  /* background-color: red; */
+  margin: 0;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.createBookingPage .moviePanel {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.createBookingPage .movieTitle {
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+}
+
+.createBookingPage .moviePicture {
+  height: 40vh;
+  border: solid 2px black;
+}
+
+.createBookingPage .priceTag{
+  background-color: rgba(0,0,0,0.7);
+  color: rgb(212,175,55);
+  border-radius: 5px;
+  padding: 4px;
+  border: solid 3px white;
+}
+
+.createBookingPage .movieDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 40vh;
+}
+
+.createBookingPage .movieDescription {
+  display: inline-block;
+  width: 80%;
+}
+
+.createBookingPage .selectForm {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 20px;
+
+}
+
+.createBookingPage .selectForm select {
+  height: 20px;
+  width: 170px;
+}
+
+.createBookingPage .selectForm .ticketSelects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Dropdown Button */
+
+.dropbtn {
+  background-color: transparent;
+  color: rgb(220, 220, 220);
+  padding: 16px;
+  font-size: 16px;
+  font-weight: normal;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.dropbtn:hover {
+  color: rgb(165, 164, 164);
+  font-size: large;
+}
+
+.moviesbtn {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 400px;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  background-color: rgba(0, 0, 0, 0.911);
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgb(12, 11, 11);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.viewBookingsPage {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 15vh;
+  margin-top:100px;
+  column-gap: 3.33%;
+  justify-content: center;
+}
+
+.viewBookingsPage .bookingPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  background-color: gray;
+  border-radius: 20px;
+  margin-bottom: 40px
+}
+
+.viewBookingsPage .moviePic {
+  width: 20vw;
+}
+
+.viewBookingsPage .bookingsTitle {
+  width: 100%;
+  text-align: center;
+  margin-bottom: -10rem;
+  color:rgb(165, 164, 164)
+}
+
+.loginPage{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.signUpPage{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

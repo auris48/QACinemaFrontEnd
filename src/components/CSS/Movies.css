@@ -1,0 +1,99 @@
+.movie-componants {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-componants {
+  background-color: darkcyan;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin: 1rem;
+  width: 400px;
+}
+
+.movie-componants img {
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.move-over {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  max-height: 100%;
+  overflow: auto;
+  left: 0;
+  bottom: 0;
+  right: 500;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+
+.move-over h2 {
+  margin-top: 0;
+}
+
+.movie-over:hover .overview {
+  transform: translateY(0);
+}
+
+.container h4 {
+  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container button {
+  border: none;
+  font-size: 5x;
+  padding: 7px 20px 6px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  font-weight: bold;
+}
+
+.container button.active {
+  background-color: beige;
+  color: aqua;
+}
+
+.movie-componant-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+  padding-top: 5;
+  gap: 5px;
+
+
+}
+
+.movie-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}

@@ -1,0 +1,14 @@
+.bookings-select-date-form select {
+    background-color: #f5f5f5;
+    width:200px;
+    height:40px;
+    border-radius:10px;
+    text-indent: 10px; 
+}
+
+.bookings-select-date-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
