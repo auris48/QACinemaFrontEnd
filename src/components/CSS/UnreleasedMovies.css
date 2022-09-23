@@ -25,49 +25,59 @@
 
 .unreleasedMovie-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   padding: 1rem;
 }
 
 
 
-button {
-border: none;
-font-size: 10x;
-padding: 7px 20px 6px 20px;
-margin: 10px;
-cursor: pointer;
-border-radius: 10px;
-outline: none;
-font-weight: bold;
+.unreleasedMovie-container button {
+  border: none;
+  font-size: 15px;
+  padding: 7px 20px 6px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  font-weight: bold;
 }
 
-button.active {
-background-color: beige; color: aqua;
+.unreleasedMovie-container button.active {
+  background-color: beige;
+  color: aqua;
 }
 
 .unreleasedMovies-componant-header {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 
 }
 
 .unreleased-movie-details {
-display: flex;
-flex-direction: column;
-padding-bottom: 5px;
-padding-top: 5;
-gap: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+  padding-top: 5;
+  gap: 5px;
 
 
 }
 
 .unreleased-movie-actions {
-display: flex;
-flex-direction: row;
-justify-content: center;
-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.header {
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  display: block;
+  width: 100vw;
 }

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
-import SearchIcon from '@mui/icons-material/Search';
-import CloseIcon from '@mui/icons-material/Close';
+import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
 
-
-function SearchBar({ placeholder, data }) {
+function SearchBar({ handleClick, placeholder, data, handleCancel }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -40,7 +39,13 @@ function SearchBar({ placeholder, data }) {
           {filteredData.length === 0 ? (
             <SearchIcon />
           ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
+            <CloseIcon
+              id="clearBtn"
+              onClick={(e) => {
+                clearInput();
+                return handleCancel;
+              }}
+            />
           )}
         </div>
       </div>
@@ -48,9 +53,9 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.title} </p>
-              </a>
+              <button onClick={() => handleClick(value.title)}>
+                {value.title}
+              </button>
             );
           })}
         </div>
@@ -60,3 +65,7 @@ function SearchBar({ placeholder, data }) {
 }
 
 export default SearchBar;
+
+/* <a className="dataItem" href={value.link} target="_blank">
+  <p>{value.title} </p>
+</a>; */

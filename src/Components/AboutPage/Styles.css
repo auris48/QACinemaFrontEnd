@@ -1,32 +1,20 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
-*{
-	margin:0px;
-	padding:0px;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+#aboutUs{
+	display: flex;
+	justify-content: center;
+	/* text-align: center; */
+
 }
+
 .section{
 	width: 100%;
 	min-height: 100vh;
 	background-color: #ddd;
 }
-.container{
-	width: 80%;
-	display: block;
-	margin:auto;
-	padding-top: 100px;
-}
-.content-section{
+ .content-section{
 	float: left;
 	width: 55%;
-}
-.image-section{
-	float: right;
-	width: 40%;
-}
-.image-section img{
-	width: 100%;
-	height: auto;
 }
 .content-section .title{
 	text-transform: uppercase;
@@ -68,32 +56,9 @@
 }
 .content-section .social i:hover{
 	color:#3d3d3d;
+
 }
-@media screen and (max-width: 768px){
-	.container{
-	width: 80%;
-	display: block;
-	margin:auto;
-	padding-top:50px;
-}
-.content-section{
-	float:none;
-	width:100%;
-	display: block;
-	margin:auto;
-}
-.image-section{
-	float:none;
-	width:100%;
-	
-}
-.image-section img{
-	width: 100%;
-	height: auto;
-	display: block;
-	margin:auto;
-}
-.content-section .title{
+.content-section .title{ 
 	text-align: center;
 	font-size: 19px;
 }
@@ -106,5 +71,7 @@
 .content-section .social{
 	text-align: center;
 }
-
-} */
+.contactForm {
+	margin-top: -50px;
+	padding-bottom: 50px;
+}
